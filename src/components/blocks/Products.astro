@@ -28,9 +28,9 @@ import Button from "../ui/Button.astro";
             Líderes em resposta instantânea. Nossos agentes identificam os melhores clientes em segundos, 24 horas por dia, 7 dias por semana, com comunicação humanizada.
           </p>
           <ul class="product-features-list">
-            <li>✦ Resposta em &lt; 2 segundos</li>
-            <li>✦ Agendamento automático de reuniões</li>
-            <li>✦ Passa a conversa pro vendedor na hora certa</li>
+            <li><span class="bullet-icon">✦</span> Resposta em &lt; 2 segundos</li>
+            <li><span class="bullet-icon">✦</span> Agendamento automático de reuniões</li>
+            <li><span class="bullet-icon">✦</span> Passa a conversa pro vendedor na hora certa</li>
           </ul>
         </div>
         <Button variant="filled">COMEÇAR GRATUITAMENTE</Button>
@@ -51,9 +51,9 @@ import Button from "../ui/Button.astro";
             Um painel visual que se atualiza sozinho. Acompanhe cada venda e saiba onde focar para fechar mais.
           </p>
           <ul class="product-features-list">
-            <li>✦ Painel visual de vendas em andamento</li>
-            <li>✦ Preenchimento com IA</li>
-            <li>✦ Integração com WhatsApp e Meta Ads</li>
+            <li><span class="bullet-icon">✦</span> Painel visual de vendas em andamento</li>
+            <li><span class="bullet-icon">✦</span> Preenchimento com IA</li>
+            <li><span class="bullet-icon">✦</span> Integração com WhatsApp e Meta Ads</li>
           </ul>
         </div>
         <Button variant="filled">COMEÇAR GRATUITAMENTE</Button>
@@ -73,9 +73,9 @@ import Button from "../ui/Button.astro";
             Centralize toda sua comunicação num só lugar. E-mails, mensagens, chamados de suporte agrupados por cliente e resolvidos em equipe.
           </p>
           <ul class="product-features-list">
-            <li>✦ WhatsApp, Instagram e Site</li>
-            <li>✦ E-mail centralizado</li>
-            <li>✦ Histórico unificado do cliente</li>
+            <li><span class="bullet-icon">✦</span> WhatsApp, Instagram e Site</li>
+            <li><span class="bullet-icon">✦</span> E-mail centralizado</li>
+            <li><span class="bullet-icon">✦</span> Histórico unificado do cliente</li>
           </ul>
         </div>
         <Button variant="filled">COMEÇAR GRATUITAMENTE</Button>
@@ -208,6 +208,10 @@ import Button from "../ui/Button.astro";
   .product-features-list li {
     font-size: 14px;
     color: var(--text-muted);
+  }
+
+  .bullet-icon {
+    color: #8257e5;
   }
 
   @media (max-width: 1024px) {
