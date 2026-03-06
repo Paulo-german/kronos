@@ -1,0 +1,231 @@
+---
+import logoSvg from "../../assets/logo.svg";
+---
+
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand reveal">
+        <div class="footer-logo">
+          <img src={logoSvg.src} alt="Kronos Logo" class="logo-img" />
+          <span>KRONOS</span>
+        </div>
+        <p class="brand-desc">
+          O Sistema Operacional de Vendas para Times de Alta Performance.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-links reveal reveal-delay-1">
+        <div class="link-col">
+          <h4>Produto</h4>
+          <a href="#solucoes">Soluções</a>
+          <a href="#precos">Preços</a>
+          <a href="#integracoes">Integrações</a>
+          <a href="#automacao">Automação</a>
+        </div>
+        <div class="link-col">
+          <h4>Empresa</h4>
+          <a href="#">Sobre Nós</a>
+          <a href="#">Clientes</a>
+          <a href="#">Carreiras</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="link-col">
+          <h4>Suporte</h4>
+          <a href="#faq">FAQ</a>
+          <a href="#">Central de Ajuda</a>
+          <a href="#">Status API</a>
+          <a href="https://wa.me/5521973134573?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" target="_blank" rel="noopener">Contato</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="copyright">
+        &copy; {new Date().getFullYear()} Kronos OS. Todos os direitos reservados.
+      </div>
+      <div class="legal-links">
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-section {
+    padding: 80px 0 40px;
+    background: var(--dark-2);
+    border-top: 1px solid var(--dark-3);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr;
+    gap: 64px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .logo-img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .brand-desc {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-secondary);
+    max-width: 300px;
+    line-height: 1.6;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .footer-social a {
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--dark-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-social a:hover {
+    color: var(--text-primary);
+    background: rgba(130, 87, 229, 0.2);
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .link-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .link-col h4 {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .link-col a {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .link-col a:hover {
+    color: #8257e5;
+    padding-left: 4px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--dark-3);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .copyright {
+    font-family: var(--font-display);
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .legal-links a {
+    font-family: var(--font-display);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .legal-links a:hover {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .footer-links {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  }
+</style>
