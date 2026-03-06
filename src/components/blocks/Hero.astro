@@ -1,0 +1,354 @@
+---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import dashboardImg from "../../assets/dashboard.png";
+import person1 from "../../assets/people/efefewfe (1).png";
+import person2 from "../../assets/people/efefewfe (1).jpg";
+import person3 from "../../assets/people/efefewfe (2).jpg";
+import person4 from "../../assets/people/unnamed.jpg";
+import Button from "../ui/Button.astro";
+
+const avatars = [person1, person2, person3, person4];
+
+const entry = await getEntry("clients", "data");
+const { socialProof } = entry.data;
+---
+
+<section class="hero-section" id="inicio">
+  <!-- Background blobs -->
+  <div class="blob blob-purple"></div>
+  <div class="blob blob-cyan"></div>
+
+  <div class="container">
+    <div class="hero-content reveal">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <span class="badge-text">Sua jornada em vendas comeca aqui!</span>
+      </div>
+
+      <!-- Headline -->
+      <div class="hero-headline">
+        <h1 class="hero-title">
+          O Sistema Operacional de Vendas para
+          <span class="gradient-text">Times de Alta Performance</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          Centralize seus contatos, responda com IA e acompanhe seus resultados em
+          tempo real. A Kronos e feita para quem quer vender mais com menos esforco.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-actions">
+        <Button variant="filled">COMEÇAR GRATUITAMENTE</Button>
+        <Button variant="outline-gray" href="https://wa.me/5521973134573?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+          FALAR COM ESPECIALISTA
+        </Button>
+      </div>
+
+      <!-- Social Proof -->
+      <div class="hero-social-proof">
+        <div class="avatar-stack">
+          {avatars.map((img, i) => (
+            <Image src={img} alt={`Cliente ${i + 1}`} class="avatar" width={32} height={32} />
+          ))}
+        </div>
+        <p class="social-text" set:html={socialProof.heroText.replace(/(\+?\d+\s*\S+)/, '<span class="social-highlight">$1</span>')} />
+      </div>
+    </div>
+
+    <!-- Dashboard Mockup (kept as-is) -->
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="mockup-glow"></div>
+      <div class="dashboard-mockup">
+        <div class="mockup-header">
+          <div class="window-controls">
+            <span style="background: #ff5f56"></span>
+            <span style="background: #ffbd2e"></span>
+            <span style="background: #27c93f"></span>
+          </div>
+          <div class="mockup-url">app.kronos.com.br</div>
+        </div>
+        <Image src={dashboardImg} alt="Dashboard da Kronos" class="mockup-img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    padding: 80px 16px 80px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 769px) {
+    .hero-section {
+      padding: 120px 16px 80px;
+    }
+  }
+
+  /* ── Background Blobs ────────────────────────────────────── */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .blob-purple {
+    top: -160px;
+    left: -160px;
+    width: 500px;
+    height: 500px;
+    background: rgba(130, 87, 229, 0.2);
+    filter: blur(120px);
+  }
+
+  .blob-cyan {
+    top: 80px;
+    right: -128px;
+    width: 400px;
+    height: 400px;
+    background: rgba(97, 218, 251, 0.15);
+    filter: blur(100px);
+  }
+
+  /* ── Container ───────────────────────────────────────────── */
+  .container {
+    max-width: 896px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  /* ── Badge ───────────────────────────────────────────────── */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 8px;
+  }
+
+  .badge-text {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--text-primary);
+  }
+
+  /* ── Headline ────────────────────────────────────────────── */
+  .hero-headline {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ── CTAs ─────────────────────────────────────────────────── */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-actions {
+      flex-direction: row;
+    }
+  }
+
+  .btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+    background: #8257e5;
+    color: white;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-hero-primary:hover {
+    background: #996dff;
+  }
+
+  .btn-hero-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-hero-outline:hover {
+    background: var(--dark-3);
+  }
+
+  /* ── Social Proof ────────────────────────────────────────── */
+  .hero-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar-stack {
+    display: flex;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+    margin-left: -8px;
+    object-fit: cover;
+  }
+
+  .avatar:first-child {
+    margin-left: 0;
+  }
+
+  .social-text {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .social-highlight {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* ── Dashboard Mockup ────────────────────────────────────── */
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    .hero-visual {
+      display: block;
+      margin-top: 32px;
+    }
+  }
+
+  .mockup-glow {
+    position: absolute;
+    inset: -16px;
+    background: rgba(130, 87, 229, 0.1);
+    border-radius: 16px;
+    filter: blur(48px);
+    pointer-events: none;
+  }
+
+  .dashboard-mockup {
+    position: relative;
+    background: var(--mockup-bg);
+    border: 1px solid var(--mockup-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px var(--mockup-shadow);
+  }
+
+  .dashboard-mockup::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8257e5, #61dafb, transparent);
+  }
+
+  .mockup-header {
+    height: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+  }
+
+  .window-controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .window-controls span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+
+  .mockup-url {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--mockup-text);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 16px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .mockup-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .gradient-text {
+    color: var(--text-primary);
+  }
+</style>
