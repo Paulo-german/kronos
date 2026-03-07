@@ -27,7 +27,7 @@ const iconPaths: Record<string, string> = {
         {/* Render twice for infinite scroll */}
         {[...companies, ...companies].map((c) => (
           <div class:list={["logo-item", c.style]}>
-            <svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={iconPaths[c.icon] ?? ''} />
+            
             {c.name}
           </div>
         ))}

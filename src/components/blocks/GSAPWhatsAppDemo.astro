@@ -711,7 +711,7 @@ import Button from "../ui/Button.astro";
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.15 });
 
   const demoSection = document.querySelector('.demo-section');
   if (demoSection) observer.observe(demoSection);
