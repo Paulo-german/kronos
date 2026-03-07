@@ -12,6 +12,11 @@ export default defineConfig({
   integrations: [react(), mdx(), keystatic(), sitemap()],
   output: "server",
   adapter: vercel(),
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },
