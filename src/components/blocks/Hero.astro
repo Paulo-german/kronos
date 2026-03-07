@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 import dashboardImg from "../../assets/dashboard.png";
 import person1 from "../../assets/people/efefewfe (1).png";
@@ -52,7 +51,7 @@ const { socialProof } = entry.data;
       <div class="hero-social-proof">
         <div class="avatar-stack">
           {avatars.map((img, i) => (
-            <Image src={img} alt={`Cliente ${i + 1}`} class="avatar" width={32} height={32} />
+            <img src={img.src} alt={`Cliente ${i + 1}`} class="avatar" width="32" height="32" />
           ))}
         </div>
         <p class="social-text" set:html={socialProof.heroText.replace(/(\+?\d+\s*\S+)/, '<span class="social-highlight">$1</span>')} />
@@ -71,7 +70,7 @@ const { socialProof } = entry.data;
           </div>
           <div class="mockup-url">app.kronos.com.br</div>
         </div>
-        <Image src={dashboardImg} alt="Dashboard da Kronos" class="mockup-img" />
+        <img src={dashboardImg.src} alt="Dashboard da Kronos" class="mockup-img" />
       </div>
     </div>
   </div>
