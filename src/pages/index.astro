@@ -7,6 +7,7 @@ import Products from "../components/blocks/Products.astro";
 import Features from "../components/blocks/Features.astro";
 import InteractiveComparison from "../components/ui/InteractiveComparison.jsx";
 import Testimonials from "../components/blocks/Testimonials.astro";
+import VideoTestimonials from "../components/blocks/VideoTestimonials.astro";
 import GSAPWhatsAppDemo from "../components/blocks/GSAPWhatsAppDemo.astro";
 import RoiCalculator from "../components/ui/RoiCalculator.jsx";
 import Integrations from "@components/blocks/Integrations.astro";
@@ -22,8 +23,9 @@ import Footer from "../components/blocks/Footer.astro";
   <Navbar />
   <main>
     <Hero />
-    <SocialProof />
     <Products />
+    <VideoTestimonials />
+    <SocialProof />
     <Features />
     <InteractiveComparison client:visible />
     <GSAPWhatsAppDemo />

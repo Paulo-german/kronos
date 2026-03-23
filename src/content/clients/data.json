@@ -1,19 +1,19 @@
 {
   "testimonials": [
     {
-      "name": "Fernanda Tavares",
-      "role": "Sócia-administradora",
-      "company": "Pactus Advocacia",
+      "name": "Adriana Lemos",
+      "role": "Sócia",
+      "company": "Lemos & Faria Advogados",
       "quote": "A gente perdia muito lead por falta de resposta rápida. Escritório de advocacia não tem cultura de CRM, mas <strong>a Kronos é tão simples que até os sócios mais resistentes adotaram</strong>. Hoje nenhum contato fica sem resposta.",
-      "avatarInitials": "FT",
+      "avatarInitials": "AL",
       "avatarColor": "#8257e5",
       "rating": 5
     },
     {
       "name": "Gustavo Rocha",
       "role": "Diretor Comercial",
-      "company": "Brava Home",
-      "quote": "No varejo de móveis o ciclo de venda é longo e o cliente some fácil. <strong>Com a Kronos a gente reduziu o tempo de resposta pra menos de 10 minutos</strong> e as conversões subiram junto.",
+      "company": "Exata Contabilidade",
+      "quote": "Na contabilidade o ciclo de venda é longo e o cliente some fácil. <strong>Com a Kronos a gente reduziu o tempo de resposta pra menos de 10 minutos</strong> e as conversões subiram junto.",
       "avatarInitials": "GR",
       "avatarColor": "#61dafb",
       "rating": 5
@@ -21,7 +21,7 @@
     {
       "name": "Juliana Monteiro",
       "role": "Gerente de Captação",
-      "company": "Vitale Clínicas",
+      "company": "Instituto Clínico Paulista",
       "quote": "Antes o WhatsApp da clínica era uma bagunça, mensagem perdida toda hora. <strong>A inbox omnichannel organizou tudo num lugar só</strong> e a equipe de atendimento finalmente respira.",
       "avatarInitials": "JM",
       "avatarColor": "#00b37e",
@@ -30,40 +30,41 @@
     {
       "name": "Rafael Mendes",
       "role": "CEO",
-      "company": "Driva Digital",
-      "quote": "Somos uma agência e vendemos serviço recorrente. <strong>Cortamos umas 12 horas semanais de trabalho manual</strong> — cadastro de lead, atualização de status, essas coisas. Agora o foco é só vender.",
+      "company": "Studio Allure",
+      "quote": "Somos um studio de estética e vendemos serviço recorrente. <strong>Cortamos umas 12 horas semanais de trabalho manual</strong> — cadastro de lead, atualização de status, essas coisas. Agora o foco é só vender.",
       "avatarInitials": "RM",
       "avatarColor": "#8257e5",
       "rating": 4
     },
     {
       "name": "Camila Duarte",
-      "role": "Head de Vendas",
-      "company": "Nexo Contábil",
-      "quote": "Contabilidade vive de indicação, mas a gente não tinha processo nenhum pra nutrir esses contatos. <strong>A IA da Kronos responde e qualifica os leads que a gente nunca tinha tempo de atender.</strong> Já fechamos 3 clientes assim.",
+      "role": "Diretora",
+      "company": "Grupo FitLife",
+      "quote": "Academia vive de indicação, mas a gente não tinha processo nenhum pra nutrir esses contatos. <strong>A IA da Kronos responde e qualifica os leads que a gente nunca tinha tempo de atender.</strong> Já fechamos mais de 30 matrículas assim.",
       "avatarInitials": "CD",
       "avatarColor": "#61dafb",
       "rating": 5
     },
     {
-      "name": "Thiago Nogueira",
-      "role": "Sócio-fundador",
-      "company": "Modo Fitness",
-      "quote": "Tenho 4 unidades e cada uma vendia de um jeito. <strong>Com a Kronos padronizei o processo comercial e finalmente consigo comparar performance entre as lojas.</strong> Mudou o jogo pra gente.",
-      "avatarInitials": "TN",
+      "name": "Roberto Almeida",
+      "role": "Diretor de Vendas",
+      "company": "Imobiliária Prime",
+      "quote": "No mercado imobiliário, quem responde primeiro leva a venda. <strong>Desde que implementamos a Kronos, nosso tempo de atendimento caiu de horas para minutos.</strong> O ROI foi visível já no primeiro mês.",
+      "avatarInitials": "RA",
       "avatarColor": "#00b37e",
-      "rating": 4
+      "rating": 5
     }
   ],
   "companies": [
-    { "name": "Pactus Advocacia", "icon": "scale", "style": "logo-bold-upper" },
-    { "name": "Vitale Clínicas", "icon": "heart-pulse", "style": "logo-light-italic" },
-    { "name": "Brava Home", "icon": "armchair", "style": "logo-heavy-tight" },
-    { "name": "Driva Digital", "icon": "rocket", "style": "logo-mono" },
-    { "name": "Nexo Contábil", "icon": "calculator", "style": "logo-semibold-caps" },
-    { "name": "Modo Fitness", "icon": "dumbbell", "style": "logo-black-upper" },
-    { "name": "Conectta Seguros", "icon": "shield-check", "style": "logo-medium" },
-    { "name": "Vertis Engenharia", "icon": "hard-hat", "style": "logo-bold-tight" }
+    { "name": "Bragança Advogados", "icon": "scale", "style": "logo-bold-upper" },
+    { "name": "Manchester Advogados", "icon": "scale", "style": "logo-bold-upper" },
+    { "name": "Legacy School", "icon": "graduation-cap", "style": "logo-heavy-tight" },
+    { "name": "Malu Make", "icon": "sparkles", "style": "logo-light-italic" },
+    { "name": "Dr. Persiana", "icon": "home", "style": "logo-semibold-caps" },
+    { "name": "Studio Allure", "icon": "scissors", "style": "logo-medium" },
+    { "name": "Instituto Clínico Paulista", "icon": "heart-pulse", "style": "logo-bold-tight" },
+    { "name": "Grupo FitLife", "icon": "dumbbell", "style": "logo-black-upper" },
+    { "name": "Silvestre Saúde", "icon": "plus-circle", "style": "logo-light-italic" }
   ],
   "caseStudy": {
     "company": "Vitale Clínicas",
@@ -76,13 +77,13 @@
     ]
   },
   "metrics": [
-    { "target": 120, "suffix": "+", "label": "Empresas ativas", "description": "Times que ja escolheram a Kronos" },
-    { "target": 94, "suffix": "%", "label": "Taxa de retencao", "description": "Clientes que renovam todo mes" },
+    { "target": 120, "suffix": "+", "label": "Empresas ativas", "description": "Times que já escolheram a Kronos" },
+    { "target": 94, "suffix": "%", "label": "Taxa de retenção", "description": "Clientes que renovam todo mês" },
     { "target": 12, "prefix": "R$ ", "suffix": "M+", "label": "Em vendas geradas", "description": "Pelos nossos clientes este ano" },
     { "target": 15, "suffix": "h", "label": "Economizadas por semana", "description": "Em tarefas manuais por vendedor" }
   ],
   "socialProof": {
-    "heroText": "+120 empresas usam a Kronos",
-    "fomoText": "8 empresas se cadastraram nas ultimas 24 horas"
+    "heroText": "+1.500 empresas usam a Kronos",
+    "fomoText": "8 empresas se cadastraram nas últimas 24 horas"
   }
 }

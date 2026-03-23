@@ -1,13 +1,20 @@
 ---
 import { getEntry } from "astro:content";
 import dashboardImg from "../../assets/dashboard.png";
-import person1 from "../../assets/people/efefewfe (1).png";
-import person2 from "../../assets/people/efefewfe (1).jpg";
-import person3 from "../../assets/people/efefewfe (2).jpg";
-import person4 from "../../assets/people/unnamed.jpg";
 import Button from "../ui/Button.astro";
+import logoBraganca from "../../../logo-clientes/logo-bragançaadvogados.webp";
+import logoDrPersiana from "../../../logo-clientes/logo-drpersiana.webp";
+import logoLegacy from "../../../logo-clientes/logo-legacy.webp";
+import logoMaluMake from "../../../logo-clientes/logo-malumake.webp";
+import logoManchester from "../../../logo-clientes/logo-manchesteradvogados.webp";
 
-const avatars = [person1, person2, person3, person4];
+const clientLogos = [
+  { src: logoLegacy.src,      alt: "Legacy School" },
+  { src: logoMaluMake.src,    alt: "Malu Make" },
+  { src: logoBraganca.src,    alt: "Bragança Advogados" },
+  { src: logoDrPersiana.src,  alt: "Dr. Persiana" },
+  { src: logoManchester.src,  alt: "Manchester Advogados" },
+];
 
 const entry = await getEntry("clients", "data");
 const { socialProof } = entry.data;
@@ -34,14 +41,14 @@ const { socialProof } = entry.data;
 
         <p class="hero-subtitle">
           Centralize seus contatos, responda com IA e acompanhe seus resultados em
-          tempo real. A Kronos e feita para quem quer vender mais com menos esforco.
+          tempo real. A Kronos é feita para quem quer vender mais com menos esforço.
         </p>
       </div>
 
       <!-- CTAs -->
       <div class="hero-actions">
         <Button variant="filled">COMEÇAR GRATUITAMENTE</Button>
-        <Button variant="outline-gray" href="https://wa.me/5521973134573?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos">
+        <Button variant="outline-gray" href="https://wa.me/5521936183225?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
           FALAR COM ESPECIALISTA
         </Button>
@@ -49,12 +56,14 @@ const { socialProof } = entry.data;
 
       <!-- Social Proof -->
       <div class="hero-social-proof">
-        <div class="avatar-stack">
-          {avatars.map((img, i) => (
-            <img src={img.src} alt={`Cliente ${i + 1}`} class="avatar" width="32" height="32" />
+        <div class="logo-chip-stack">
+          {clientLogos.map((logo) => (
+            <div class="logo-chip">
+              <img src={logo.src} alt={logo.alt} />
+            </div>
           ))}
         </div>
-        <p class="social-text" set:html={socialProof.heroText.replace(/(\+?\d+\s*\S+)/, '<span class="social-highlight">$1</span>')} />
+        <p class="social-text" set:html={socialProof.heroText.replace(/(\+?[\d\.]+\s*\S+)/, '<span class="social-highlight">$1</span>')} />
       </div>
     </div>
 
@@ -229,28 +238,42 @@ const { socialProof } = entry.data;
     background: var(--dark-3);
   }
 
-  /* ── Social Proof ────────────────────────────────────────── */
+  /* ── Social Proof ── */
   .hero-social-proof {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .avatar-stack {
+  .logo-chip-stack {
     display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid var(--dark);
-    margin-left: -8px;
-    object-fit: cover;
+  .logo-chip {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
   }
 
-  .avatar:first-child {
-    margin-left: 0;
+  .logo-chip img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(20%);
   }
 
   .social-text {
