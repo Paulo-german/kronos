@@ -3,9 +3,10 @@ interface Props {
   href?: string;
   variant?: "outline-purple" | "outline-gray" | "filled";
   class?: string;
+  id?: string;
 }
 
-const { href = "https://app.kronoshub.com.br/sign-up", variant = "outline-purple", class: className = "" } = Astro.props;
+const { href = "https://app.kronoshub.com.br/sign-up", variant = "outline-purple", class: className = "", id } = Astro.props;
 
 const variantClass = {
   "outline-purple": "btn-outline-purple",
@@ -14,7 +15,7 @@ const variantClass = {
 }[variant];
 ---
 
-<a href={href} class:list={[variantClass, className]}>
+<a href={href} class:list={[variantClass, className]} id={id}>
   <slot />
 </a>
 
