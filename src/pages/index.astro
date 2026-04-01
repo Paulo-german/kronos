@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/blocks/Navbar.astro";
+import Hero from "../components/blocks/Hero.astro";
+import SocialProof from "../components/blocks/SocialProof.astro";
+import Products from "../components/blocks/Products.astro";
+import Features from "../components/blocks/Features.astro";
+import InteractiveComparison from "../components/ui/InteractiveComparison.jsx";
+import Testimonials from "../components/blocks/Testimonials.astro";
+import VideoTestimonials from "../components/blocks/VideoTestimonials.astro";
+import GSAPWhatsAppDemo from "../components/blocks/GSAPWhatsAppDemo.astro";
+import RoiCalculator from "../components/ui/RoiCalculator.jsx";
+import Integrations from "../components/blocks/Integrations.astro";
+import Pricing from "../components/blocks/Pricing.astro";
+import FAQ from "../components/blocks/FAQ.astro";
+import Footer from "../components/blocks/Footer.astro";
+---
+
+<BaseLayout
+  title="Kronos — Venda Mais, Perca Menos. A Plataforma de Vendas com IA."
+  description="Sua equipe perde leads todo dia por falta de velocidade. A Kronos responde em segundos, organiza seu funil de vendas e entrega resultado real."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <SocialProof />
+    <Products />
+    <VideoTestimonials />
+    <Features />
+    <InteractiveComparison client:visible />
+    <GSAPWhatsAppDemo />
+    <!-- <Testimonials /> -->
+    <!-- <RoiCalculator client:visible /> -->
+    <!-- <Integrations /> -->
+    <Pricing />
+    <FAQ />
+  </main>
+  <Footer />
+</BaseLayout>

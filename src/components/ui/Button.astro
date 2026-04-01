@@ -1,0 +1,92 @@
+---
+interface Props {
+  href?: string;
+  variant?: "outline-purple" | "outline-gray" | "filled";
+  class?: string;
+  id?: string;
+}
+
+const { href = "https://app.kronoshub.com.br/sign-up", variant = "outline-purple", class: className = "", id } = Astro.props;
+
+const variantClass = {
+  "outline-purple": "btn-outline-purple",
+  "outline-gray": "btn-outline-gray",
+  "filled": "btn-filled",
+}[variant];
+---
+
+<a href={href} class:list={[variantClass, className]} id={id}>
+  <slot />
+</a>
+
+<style>
+  .btn-outline-purple {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #8257e5;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .btn-outline-purple:hover {
+    background: #8257e5;
+    color: #ffffff;
+  }
+
+  .btn-outline-gray {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid var(--dark-3);
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .btn-outline-gray:hover {
+    border-color: var(--text-muted);
+  }
+
+  .btn-filled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    background: #8257e5;
+    transition: all 0.2s ease;
+  }
+
+  .btn-filled:hover {
+    background: #996dff;
+  }
+</style>

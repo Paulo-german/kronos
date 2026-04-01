@@ -1,0 +1,551 @@
+---
+import Button from "../ui/Button.astro";
+
+const plans = [
+  {
+    id: "light",
+    name: "Light",
+    tagline: "Pra quem vende sozinho e quer parar de perder lead.",
+    price: "147",
+    period: "mês",
+    popular: false,
+    color: "var(--dark-2)",
+    borderColor: "var(--dark-3)",
+    features: [
+      "1 usuário",
+      "1 agente IA + 10.000 créditos IA",
+      "1 canal Inbox",
+      "Até 5.000 contatos",
+      "Até 5.000 negócios",
+      "Até 2.000 empresas",
+      "Agendamentos ilimitados",
+    ],
+    cta: "Assinar Light",
+    ctaStyle: "outline",
+  },
+  {
+    id: "essential",
+    name: "Essential",
+    tagline: "Pra equipes pequenas que querem vender com processo.",
+    price: "397",
+    period: "mês",
+    popular: false,
+    color: "var(--dark-2)",
+    borderColor: "var(--dark-3)",
+    features: [
+      "4 usuários",
+      "4 agentes IA + 18.000 créditos IA",
+      "1 canal Inbox",
+      "Até 25.000 contatos",
+      "Até 25.000 negócios",
+      "Até 10.000 empresas",
+      "Agendamentos ilimitados",
+      "Automações (Em breve)",
+    ],
+    cta: "Assinar Essential",
+    ctaStyle: "outline",
+  },
+  {
+    id: "scale",
+    name: "Scale",
+    tagline: "Pra quem está crescendo e precisa escalar sem bagunça.",
+    price: "697",
+    period: "mês",
+    popular: true,
+    color: "var(--dark-2)",
+    borderColor: "rgba(130, 87, 229, 0.5)",
+    features: [
+      "10 usuários",
+      "10 agentes IA + 45.000 créditos IA",
+      "3 canais Inbox",
+      "Até 50.000 contatos",
+      "Até 50.000 negócios",
+      "Até 20.000 empresas",
+      "Agendamentos ilimitados",
+      "Automações (Em breve)",
+    ],
+    cta: "Assinar Scale",
+    ctaStyle: "primary",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    tagline: "Pra operações grandes que exigem controle total.",
+    price: "1197",
+    period: "mês",
+    popular: false,
+    color: "var(--dark-2)",
+    borderColor: "var(--dark-3)",
+    features: [
+      "20 usuários",
+      "20 agentes IA + 72.000 créditos IA",
+      "10 canais Inbox",
+      "Até 50.000 contatos",
+      "Até 50.000 negócios",
+      "Até 20.000 empresas",
+      "Agendamentos ilimitados",
+      "Automações (Em breve)",
+      "Ferramentas de integração (Em breve)",
+      "Login único corporativo (Em breve)",
+    ],
+    cta: "Assinar Enterprise",
+    ctaStyle: "outline",
+  },
+];
+---
+
+<section class="pricing-section" id="precos">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">Preços</div>
+      <h2 class="section-title">
+        Preço justo. Resultado real.<br/>
+        <span class="gradient-text">Sem pegadinha.</span>
+      </h2>
+      <p class="section-desc">
+        Sem contrato de fidelidade. Cancele quando quiser.
+      </p>
+    </div>
+
+    <!-- Toggle -->
+    <div class="pricing-toggle reveal">
+      <span class="toggle-label active" id="toggle-monthly">Mensal</span>
+      <div class="toggle-switch" id="pricingToggle">
+        <div class="toggle-thumb"></div>
+      </div>
+      <span class="toggle-label" id="toggle-annual">
+        Anual
+        <span class="save-badge">Economize 10%</span>
+      </span>
+    </div>
+
+    <div class="pricing-grid">
+      {plans.map((plan, i) => (
+        <div
+          class={`pricing-card reveal reveal-delay-${i + 1} ${plan.popular ? 'pricing-popular' : ''}`}
+          style={`--card-color: ${plan.color}; --card-border: ${plan.borderColor};`}
+          id={`plan-${plan.id}`}
+        >
+          {plan.popular && (
+            <div class="popular-badge">POPULAR</div>
+          )}
+
+          <div class="plan-body">
+            <div class="plan-header">
+              <div class="plan-name">{plan.name}</div>
+              <div class="plan-tagline">{plan.tagline}</div>
+            </div>
+
+            <div class="plan-price">
+              <div class="price-main">
+                <span class="price-currency">R$</span>
+                <span class="price-value" data-monthly={plan.price} data-annual={Math.floor(parseInt(plan.price) * 0.9)}>
+                  {plan.price}
+                </span>
+              </div>
+              <span class="price-period">/{plan.period}</span>
+            </div>
+
+            <ul class="plan-features">
+              {plan.features.map(f => (
+                <li class="plan-feature">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7l3.5 3.5 6.5-7" stroke="#8257e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <Button variant={plan.popular ? "filled" : "outline-purple"} class="plan-cta-btn" id={`cta-comecar-${plan.id}`}>
+            COMEÇAR AGORA
+          </Button>
+        </div>
+      ))}
+    </div>
+
+    <!-- Guarantee -->
+    <div class="pricing-guarantee reveal">
+      <div class="guarantee-content">
+        <div class="guarantee-desc">Garantia legal de 7 dias: se não for pra você, devolvemos seu dinheiro conforme o Código de Defesa do Consumidor.</div>
+      </div>
+    </div>
+
+    <!-- FAQ do pricing -->
+    <div class="pricing-note reveal">
+      <div class="note-items">
+        <div class="note-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Sem contrato de fidelidade
+        </div>
+        <div class="note-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Cancele quando quiser
+        </div>
+        <div class="note-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Upgrade a qualquer momento
+        </div>
+        <div class="note-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8l4 4 8-8" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Dados exportáveis sempre
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-section {
+    padding: 80px 0;
+  }
+
+  .pricing-section .container {
+    max-width: 1400px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Toggle */
+  .pricing-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  .toggle-label {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .toggle-label.active { color: var(--text-primary); }
+
+  .toggle-switch {
+    width: 44px;
+    height: 24px;
+    background: var(--dark-3);
+    border: 1px solid var(--dark-3);
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .toggle-switch.annual {
+    background: rgba(130, 87, 229, 0.4);
+    border-color: rgba(130, 87, 229, 0.5);
+  }
+
+  .toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+  }
+
+  .toggle-switch.annual .toggle-thumb {
+    transform: translateX(20px);
+  }
+
+  .save-badge {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: #8257e5;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: stretch;
+    margin-bottom: 40px;
+  }
+
+  .pricing-card {
+    background: var(--card-color, var(--dark-2));
+    border: 1px solid var(--card-border, var(--dark-3));
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-popular {
+    border-color: rgba(130, 87, 229, 0.5);
+  }
+
+  .plan-body {
+    flex: 1;
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #8257e5;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 0 0 10px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .plan-header {
+    margin-bottom: 24px;
+    padding-top: 8px;
+  }
+
+  .plan-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .plan-tagline {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .plan-price {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .price-main {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .price-currency {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .price-value {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .price-period {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .plan-cta-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--font-display);
+    margin-bottom: 32px;
+  }
+
+  .plan-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .plan-feature svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Guarantee */
+  .pricing-guarantee {
+    background: var(--dark-2);
+    border: 1px solid rgba(130, 87, 229, 0.2);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .guarantee-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .guarantee-content { flex: 1; }
+
+  .guarantee-title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .guarantee-desc {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .guarantee-tag {
+    background: rgba(130, 87, 229, 0.1);
+    border: 1px solid rgba(130, 87, 229, 0.25);
+    color: #8257e5;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Note */
+  .pricing-note {
+    display: flex;
+    justify-content: center;
+  }
+
+  .note-items {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .note-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .gradient-text { color: var(--text-primary); }
+
+  @media (max-width: 1200px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-guarantee { flex-direction: column; text-align: center; }
+    .note-items { gap: 16px; }
+    .pricing-card { padding: 24px; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('pricingToggle');
+  const toggleMonthly = document.getElementById('toggle-monthly');
+  const toggleAnnual = document.getElementById('toggle-annual');
+  const priceValues = document.querySelectorAll('.price-value');
+
+  let isAnnual = false;
+
+  toggle?.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggle.classList.toggle('annual', isAnnual);
+    toggleMonthly?.classList.toggle('active', !isAnnual);
+    toggleAnnual?.classList.toggle('active', isAnnual);
+
+    priceValues.forEach(el => {
+      const monthly = el.getAttribute('data-monthly');
+      const annual = el.getAttribute('data-annual');
+      el.textContent = isAnnual ? (annual || monthly) : (monthly || '');
+    });
+  });
+</script>

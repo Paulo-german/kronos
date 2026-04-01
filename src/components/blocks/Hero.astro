@@ -1,0 +1,440 @@
+---
+import { getEntry } from "astro:content";
+import dashboardImg from "../../assets/dashboard.png";
+import dashboardMobileImg from "../../assets/dashboard-mobile.png";
+import Button from "../ui/Button.astro";
+import logoBraganca from "../../assets/logo-clientes/logo-bragançaadvogados.webp";
+import logoDrPersiana from "../../assets/logo-clientes/logo-drpersiana.webp";
+import logoLegacy from "../../assets/logo-clientes/logo-legacy.webp";
+import logoMaluMake from "../../assets/logo-clientes/logo-malumake.webp";
+import logoManchester from "../../assets/logo-clientes/logo-manchesteradvogados.webp";
+
+const clientLogos = [
+  { src: logoLegacy.src,      alt: "Legacy School" },
+  { src: logoMaluMake.src,    alt: "Malu Make" },
+  { src: logoBraganca.src,    alt: "Bragança Advogados" },
+  { src: logoDrPersiana.src,  alt: "Dr. Persiana" },
+  { src: logoManchester.src,  alt: "Manchester Advogados" },
+];
+
+const entry = await getEntry("clients", "data");
+const { socialProof } = entry.data;
+---
+
+<section class="hero-section" id="inicio">
+  <!-- Background blobs -->
+  <div class="blob blob-purple"></div>
+  <div class="blob blob-cyan"></div>
+
+  <div class="container">
+    <div class="hero-content reveal">
+      <!-- Social Proof Pill -->
+      <div class="hero-social-proof">
+        <div class="avatar-stack">
+          {clientLogos.slice(0, 3).map((logo) => (
+            <div class="avatar-chip">
+              <img src={logo.src} alt={logo.alt} />
+            </div>
+          ))}
+        </div>
+        <p class="social-text" set:html={socialProof.heroText.replace(/(\+?[\d\.]+\s*\S+)/, '<span class="social-highlight">$1</span>')} />
+      </div>
+
+      <!-- Headline -->
+      <div class="hero-headline">
+        <h1 class="hero-title">
+          Foque no que você faz de melhor
+          <span class="gradient-text">e deixa as vendas com a gente.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Pare de pagar por várias plataformas. Atendimento humanizado, qualificação, agendamento e vendas organizadas. Tudo em um só lugar e 100% automatizado com IA.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="hero-actions">
+        <Button variant="filled" id="cta-comecar-hero">COMEÇAR AGORA</Button>
+        <Button variant="outline-gray" href="https://wa.me/5521936183225?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" id="cta-especialista-hero">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+          AGENDAR DEMONSTRAÇÃO
+        </Button>
+      </div>
+    </div>
+
+    <!-- Mockups -->
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="mockup-glow"></div>
+
+      <!-- Desktop mockup (background) -->
+      <div class="desktop-mockup">
+        <img src={dashboardImg.src} alt="Dashboard da Kronos" class="mockup-img" />
+      </div>
+
+      <!-- Mobile mockup (foreground, overlapping) -->
+      <div class="mobile-mockup">
+        <img src={dashboardMobileImg.src} alt="Kronos no celular" class="mobile-img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    padding: 80px 16px 80px;
+    overflow: hidden;
+  }
+
+  @media (min-width: 769px) {
+    .hero-section {
+      padding: 180px 16px 80px;
+    }
+  }
+
+  /* ── Background Blobs ────────────────────────────────────── */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .blob-purple {
+    top: -160px;
+    left: -160px;
+    width: 500px;
+    height: 500px;
+    background: rgba(130, 87, 229, 0.2);
+    filter: blur(120px);
+  }
+
+  .blob-cyan {
+    top: 80px;
+    right: -128px;
+    width: 400px;
+    height: 400px;
+    background: rgba(97, 218, 251, 0.15);
+    filter: blur(100px);
+  }
+
+  /* ── Container ───────────────────────────────────────────── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  @media (min-width: 769px) {
+    .container {
+      max-width: none;
+      padding-left: max(32px, calc((100vw - 1380px) / 2));
+      padding-right: 0;
+      grid-template-columns: minmax(0, 540px) 1fr;
+      gap: 48px;
+    }
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  /* ── Badge ───────────────────────────────────────────────── */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 8px;
+  }
+
+  .badge-text {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  /* ── Headline ────────────────────────────────────────────── */
+  .hero-headline {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 540px;
+  }
+
+  /* ── CTAs ─────────────────────────────────────────────────── */
+  .hero-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+    background: #8257e5;
+    color: white;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-hero-primary:hover {
+    background: #996dff;
+  }
+
+  .btn-hero-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-hero-outline:hover {
+    background: var(--dark-3);
+  }
+
+  /* ── Social Proof ── */
+  .hero-social-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 100px;
+    padding: 8px 20px 8px 8px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-social-proof {
+      transform: scale(0.84);
+      transform-origin: left center;
+    }
+  }
+
+  .avatar-stack {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar-chip {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    overflow: hidden;
+    border: 2px solid var(--dark-2);
+    flex-shrink: 0;
+  }
+
+  .avatar-chip + .avatar-chip {
+    margin-left: -10px;
+  }
+
+  .avatar-chip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .social-text {
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .social-highlight {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ── Mockups ─────────────────────────────────────────────── */
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+  }
+
+  @media (min-width: 769px) {
+    .hero-visual {
+      width: 160%;
+      margin-left: 40px;
+    }
+  }
+
+  .mockup-glow {
+    position: absolute;
+    inset: -16px;
+    background: rgba(130, 87, 229, 0.08);
+    border-radius: 16px;
+    filter: blur(48px);
+    pointer-events: none;
+  }
+
+  /* Desktop mockup — sits in the back right */
+  .desktop-mockup {
+    position: relative;
+    background: var(--mockup-bg);
+    border: 1px solid var(--mockup-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: none;
+    width: 100%;
+  }
+
+  .desktop-mockup::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8257e5, #61dafb, transparent);
+  }
+
+  .mockup-header {
+    height: 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: relative;
+  }
+
+  .window-controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .window-controls span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+
+  .mockup-url {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-display);
+    font-size: 10px;
+    color: var(--mockup-text);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 3px 12px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .mockup-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Mobile mockup — overlaps in front, bottom-left */
+  .mobile-mockup {
+    position: absolute;
+    bottom: -40px;
+    left: -24px;
+    width: 240px;
+    max-height: 480px;
+    background: var(--mockup-bg);
+    border: 1px solid var(--mockup-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: none;
+    z-index: 2;
+  }
+
+  .mobile-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-mockup {
+      width: 100px;
+      max-height: 200px;
+      bottom: -30px;
+      left: -20px;
+      border-radius: 16px;
+    }
+    .desktop-mockup {
+      width: 140%;
+      margin-left: 0px;
+    }
+  }
+
+  .gradient-text {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .blob-purple {
+      width: 280px;
+      height: 280px;
+      top: -80px;
+      left: -80px;
+    }
+    .blob-cyan {
+      width: 220px;
+      height: 220px;
+      right: -60px;
+    }
+  }
+</style>

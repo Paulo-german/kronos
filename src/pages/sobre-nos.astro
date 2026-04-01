@@ -1,0 +1,401 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/blocks/Navbar.astro";
+import Footer from "../components/blocks/Footer.astro";
+---
+
+<BaseLayout
+  title="Sobre Nós — Kronos Hub"
+  description="Conheça a Kronos Hub: a plataforma de vendas com IA que ajuda empresas a vender mais, perder menos e crescer com inteligência."
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="section-badge">Sobre a Kronos</div>
+          <h1>
+            Vendas não podem depender de <span class="highlight">sorte</span>.
+          </h1>
+          <p class="hero-desc">
+            Nascemos da frustração de ver empresas perderem vendas por falta de processo, velocidade e tecnologia acessível. A Kronos existe para resolver isso — com IA, automação e um CRM que funciona de verdade.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Missão / Visão / Valores -->
+    <section class="mvv-section">
+      <div class="container">
+        <div class="mvv-grid">
+          <div class="mvv-card reveal">
+            <div class="mvv-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h3>Missão</h3>
+            <p>Democratizar a tecnologia de vendas para que qualquer empresa — do escritório de advocacia à clínica — consiga vender mais sem depender de processos manuais.</p>
+          </div>
+          <div class="mvv-card reveal reveal-delay-1">
+            <div class="mvv-icon icon-green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Visão</h3>
+            <p>Ser a plataforma de vendas com IA mais usada por pequenas e médias empresas no Brasil, tornando cada interação com o cliente uma oportunidade real de negócio.</p>
+          </div>
+          <div class="mvv-card reveal reveal-delay-2">
+            <div class="mvv-icon icon-cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Valores</h3>
+            <p>Resultado acima de promessa. Simplicidade radical. O cliente vem primeiro. Melhoria contínua. Transparência em tudo que fazemos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nossa História -->
+    <section class="story-section">
+      <div class="container">
+        <div class="story-content reveal">
+          <div class="section-badge">Nossa história</div>
+          <h2>Do problema real à solução</h2>
+          <div class="story-text">
+            <p>
+              A Kronos nasceu quando percebemos que a maioria das empresas brasileiras ainda vendia no improviso: planilhas desorganizadas, WhatsApp pessoal misturado com comercial e leads perdidos sem ninguém saber por quê.
+            </p>
+            <p>
+              As ferramentas que existiam eram caras demais, complexas demais ou simplesmente não funcionavam para a realidade do mercado brasileiro. Decidimos construir algo diferente: uma plataforma que une CRM, WhatsApp e inteligência artificial numa experiência simples e acessível.
+            </p>
+            <p>
+              Hoje, mais de 120 empresas usam a Kronos para responder leads em segundos, organizar seus funis de vendas e fechar mais negócios — sem precisar de uma equipe de TI ou semanas de implementação.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Números -->
+    <section class="metrics-section">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric-item reveal">
+            <div class="metric-number">120+</div>
+            <div class="metric-label">Empresas ativas</div>
+            <div class="metric-desc">Já escolheram a Kronos pra crescer</div>
+          </div>
+          <div class="metric-item reveal reveal-delay-1">
+            <div class="metric-number">94%</div>
+            <div class="metric-label">Taxa de retenção</div>
+            <div class="metric-desc">Porque o resultado aparece</div>
+          </div>
+          <div class="metric-item reveal reveal-delay-2">
+            <div class="metric-number">R$ 12M+</div>
+            <div class="metric-label">Em vendas geradas</div>
+            <div class="metric-desc">Faturamento real dos nossos clientes</div>
+          </div>
+          <div class="metric-item reveal reveal-delay-3">
+            <div class="metric-number">15h</div>
+            <div class="metric-label">Salvas por vendedor/semana</div>
+            <div class="metric-desc">Tempo que voltou pra fechar negócio</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Pronto para vender mais?</h2>
+          <p>Junte-se a mais de 120 empresas que já transformaram suas vendas com a Kronos.</p>
+          <a href="https://app.kronoshub.com.br/sign-up" class="btn btn-primary">COMEÇAR AGORA</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .about-hero {
+    padding: 160px 0 80px;
+    background: var(--dark);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .about-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+
+  .highlight {
+    color: #8257e5;
+  }
+
+  .hero-desc {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── Missão / Visão / Valores ── */
+  .mvv-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-top: 1px solid var(--dark-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .mvv-card {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px;
+    transition: border-color 0.2s ease;
+  }
+
+  .mvv-card:hover {
+    border-color: rgba(130, 87, 229, 0.3);
+  }
+
+  .mvv-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(130, 87, 229, 0.15);
+    color: #8257e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .mvv-icon.icon-green {
+    background: rgba(0, 179, 126, 0.15);
+    color: #00b37e;
+  }
+
+  .mvv-icon.icon-cyan {
+    background: rgba(97, 218, 251, 0.15);
+    color: #61dafb;
+  }
+
+  .mvv-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .mvv-card p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── Nossa História ── */
+  .story-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-top: 1px solid var(--dark-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .story-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .story-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .story-text p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  /* ── Métricas ── */
+  .metrics-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-top: 1px solid var(--dark-3);
+    border-bottom: 1px solid var(--dark-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .metric-item {
+    padding: 32px 40px;
+    border-right: 1px solid var(--dark-3);
+    text-align: center;
+    transition: background 0.2s ease;
+  }
+
+  .metric-item:last-child {
+    border-right: none;
+  }
+
+  .metric-item:hover {
+    background: rgba(130, 87, 229, 0.05);
+  }
+
+  .metric-number {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .metric-label {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .metric-desc {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 80px 0;
+    background: var(--dark);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-box {
+    text-align: center;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 64px 32px;
+  }
+
+  .cta-box h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-box p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  /* ── Responsivo ── */
+  @media (max-width: 900px) {
+    .mvv-grid {
+      grid-template-columns: 1fr;
+    }
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .metric-item:nth-child(2) {
+      border-right: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-hero {
+      padding: 120px 0 48px;
+    }
+    .mvv-section,
+    .story-section,
+    .metrics-section,
+    .cta-section {
+      padding: 48px 0;
+    }
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .metric-item {
+      padding: 24px 16px;
+      border-right: none;
+      border-bottom: 1px solid var(--dark-3);
+    }
+    .cta-box {
+      padding: 40px 24px;
+    }
+  }
+</style>

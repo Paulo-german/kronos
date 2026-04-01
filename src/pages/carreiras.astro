@@ -1,0 +1,272 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/blocks/Navbar.astro";
+import Footer from "../components/blocks/Footer.astro";
+
+const benefits = [
+  { icon: "globe", title: "100% Remoto", desc: "Trabalhe de onde quiser. Valorizamos resultados, não presença física." },
+  { icon: "rocket", title: "Produto em crescimento", desc: "Estamos no começo de algo grande. Seu trabalho vai ter impacto real desde o dia 1." },
+  { icon: "users", title: "Time enxuto", desc: "Sem burocracia. Cada pessoa importa e tem voz nas decisões." },
+  { icon: "zap", title: "Tecnologia de ponta", desc: "Trabalhamos com IA, automação e ferramentas modernas. Nada de legado." },
+  { icon: "heart", title: "Cultura de resultado", desc: "Meritocracia real. Quem entrega, cresce junto com a empresa." },
+  { icon: "book", title: "Aprendizado contínuo", desc: "Incentivamos cursos, conferências e desenvolvimento profissional." },
+];
+---
+
+<BaseLayout
+  title="Carreiras — Kronos Hub"
+  description="Trabalhe na Kronos Hub. Veja nossas vagas abertas e faça parte do time que está transformando vendas com IA no Brasil."
+>
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="careers-hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <div class="section-badge">Carreiras</div>
+          <h1>
+            Construa o futuro das <span class="highlight">vendas com IA</span>
+          </h1>
+          <p class="hero-desc">
+            A Kronos está mudando a forma como empresas brasileiras vendem. Procuramos pessoas que querem fazer parte dessa transformação.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cultura e benefícios -->
+    <section class="culture-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Por que trabalhar na <span class="highlight">Kronos</span></h2>
+        </div>
+        <div class="benefits-grid">
+          {benefits.map((b, i) => (
+            <div class={`benefit-card reveal ${i > 0 ? `reveal-delay-${Math.min(i % 3, 2)}` : ""}`}>
+              <div class="benefit-icon">
+                {b.icon === "globe" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                )}
+                {b.icon === "rocket" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                )}
+                {b.icon === "users" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                )}
+                {b.icon === "zap" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                )}
+                {b.icon === "heart" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                )}
+                {b.icon === "book" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                )}
+              </div>
+              <h3>{b.title}</h3>
+              <p>{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Vagas -->
+    <section class="jobs-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-badge">Vagas</div>
+          <h2>Oportunidades abertas</h2>
+        </div>
+        <div class="no-jobs reveal">
+          <div class="no-jobs-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <h3>Nenhuma vaga aberta no momento</h3>
+          <p>Estamos sempre em busca de talentos excepcionais. Envie seu currículo para nosso banco de talentos e entraremos em contato quando surgirem novas oportunidades.</p>
+          <a href="mailto:contato@kronoshub.com.br?subject=Banco%20de%20Talentos%20-%20Kronos" class="btn btn-outline-purple">
+            ENVIAR CURRÍCULO
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .careers-hero {
+    padding: 160px 0 80px;
+    background: var(--dark);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .careers-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+  }
+
+  .highlight { color: #8257e5; }
+
+  .hero-desc {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Cultura ── */
+  .culture-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-top: 1px solid var(--dark-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .benefit-card {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px;
+    transition: border-color 0.2s ease;
+  }
+
+  .benefit-card:hover {
+    border-color: rgba(130, 87, 229, 0.3);
+  }
+
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(130, 87, 229, 0.15);
+    color: #8257e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .benefit-card p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── Vagas ── */
+  .jobs-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-top: 1px solid var(--dark-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .no-jobs {
+    text-align: center;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 64px 32px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .no-jobs-icon {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .no-jobs h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+
+  .no-jobs p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Responsivo ── */
+  @media (max-width: 900px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .careers-hero { padding: 120px 0 48px; }
+    .culture-section, .jobs-section { padding: 48px 0; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .no-jobs { padding: 40px 24px; }
+  }
+</style>

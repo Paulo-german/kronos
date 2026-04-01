@@ -1,0 +1,89 @@
+{
+  "testimonials": [
+    {
+      "name": "Adriana Lemos",
+      "role": "Sócia",
+      "company": "Lemos & Faria Advogados",
+      "quote": "A gente perdia muito lead por falta de resposta rápida. Escritório de advocacia não tem cultura de CRM, mas <strong>a Kronos é tão simples que até os sócios mais resistentes adotaram</strong>. Hoje nenhum contato fica sem resposta.",
+      "avatarInitials": "AL",
+      "avatarColor": "#8257e5",
+      "rating": 5
+    },
+    {
+      "name": "Gustavo Rocha",
+      "role": "Diretor Comercial",
+      "company": "Exata Contabilidade",
+      "quote": "Na contabilidade o ciclo de venda é longo e o cliente some fácil. <strong>Com a Kronos a gente reduziu o tempo de resposta pra menos de 10 minutos</strong> e as conversões subiram junto.",
+      "avatarInitials": "GR",
+      "avatarColor": "#61dafb",
+      "rating": 5
+    },
+    {
+      "name": "Juliana Monteiro",
+      "role": "Gerente de Captação",
+      "company": "Instituto Clínico Paulista",
+      "quote": "Antes o WhatsApp da clínica era uma bagunça, mensagem perdida toda hora. <strong>A inbox omnichannel organizou tudo num lugar só</strong> e a equipe de atendimento finalmente respira.",
+      "avatarInitials": "JM",
+      "avatarColor": "#00b37e",
+      "rating": 5
+    },
+    {
+      "name": "Rafael Mendes",
+      "role": "CEO",
+      "company": "Studio Allure",
+      "quote": "Somos um studio de estética e vendemos serviço recorrente. <strong>Cortamos umas 12 horas semanais de trabalho manual</strong> — cadastro de lead, atualização de status, essas coisas. Agora o foco é só vender.",
+      "avatarInitials": "RM",
+      "avatarColor": "#8257e5",
+      "rating": 4
+    },
+    {
+      "name": "Camila Duarte",
+      "role": "Diretora",
+      "company": "Grupo FitLife",
+      "quote": "Academia vive de indicação, mas a gente não tinha processo nenhum pra nutrir esses contatos. <strong>A IA da Kronos responde e qualifica os leads que a gente nunca tinha tempo de atender.</strong> Já fechamos mais de 30 matrículas assim.",
+      "avatarInitials": "CD",
+      "avatarColor": "#61dafb",
+      "rating": 5
+    },
+    {
+      "name": "Roberto Almeida",
+      "role": "Diretor de Vendas",
+      "company": "Imobiliária Prime",
+      "quote": "No mercado imobiliário, quem responde primeiro leva a venda. <strong>Desde que implementamos a Kronos, nosso tempo de atendimento caiu de horas para minutos.</strong> O ROI foi visível já no primeiro mês.",
+      "avatarInitials": "RA",
+      "avatarColor": "#00b37e",
+      "rating": 5
+    }
+  ],
+  "companies": [
+    { "name": "Bragança Advogados", "icon": "scale", "style": "logo-bold-upper" },
+    { "name": "Manchester Advogados", "icon": "scale", "style": "logo-bold-upper" },
+    { "name": "Legacy School", "icon": "graduation-cap", "style": "logo-heavy-tight" },
+    { "name": "Malu Make", "icon": "sparkles", "style": "logo-light-italic" },
+    { "name": "Dr. Persiana", "icon": "home", "style": "logo-semibold-caps" },
+    { "name": "Studio Allure", "icon": "scissors", "style": "logo-medium" },
+    { "name": "Instituto Clínico Paulista", "icon": "heart-pulse", "style": "logo-bold-tight" },
+    { "name": "Grupo FitLife", "icon": "dumbbell", "style": "logo-black-upper" },
+    { "name": "Silvestre Saúde", "icon": "plus-circle", "style": "logo-light-italic" }
+  ],
+  "caseStudy": {
+    "company": "Vitale Clínicas",
+    "title": "de 80 para 210 agendamentos/mês em 4 meses",
+    "metrics": [
+      { "value": "2.6x", "label": "Mais agendamentos" },
+      { "value": "-40%", "label": "Tempo de resposta" },
+      { "value": "+85%", "label": "Taxa de conversão" },
+      { "value": "4 meses", "label": "Tempo para resultado" }
+    ]
+  },
+  "metrics": [
+    { "target": 120, "suffix": "+", "label": "Empresas vendendo mais", "description": "Já escolheram a Kronos pra crescer" },
+    { "target": 94, "suffix": "%", "label": "Ficam mês após mês", "description": "Porque o resultado aparece" },
+    { "target": 12, "prefix": "R$ ", "suffix": "M+", "label": "Em vendas geradas", "description": "Faturamento real dos nossos clientes" },
+    { "target": 15, "suffix": "h", "label": "Salvas por vendedor/semana", "description": "Tempo que voltou pra fechar negócio" }
+  ],
+  "socialProof": {
+    "heroText": "+120 empresas já vendem mais com a Kronos",
+    "fomoText": "12 empresas começaram a testar nas últimas 48 horas"
+  }
+}

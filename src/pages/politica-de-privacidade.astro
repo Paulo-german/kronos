@@ -1,0 +1,384 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+---
+
+<LegalLayout
+  title="Política de Privacidade"
+  description="Saiba como a Kronos Hub coleta, utiliza e protege seus dados pessoais."
+  lastUpdated="31 de março de 2026"
+>
+  <p>
+    A <strong>Kronos</strong> ("nós", "nosso" ou "Plataforma") é uma plataforma de CRM (Customer Relationship Management) que auxilia empresas na gestão de relacionamento com clientes, automação de vendas e comunicação via WhatsApp. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos os dados pessoais dos usuários e de terceiros cujos dados sejam inseridos na Plataforma.
+  </p>
+  <p>
+    Ao utilizar a Kronos, você declara ter lido e concordado com esta Política. Caso não concorde, descontinue o uso da Plataforma.
+  </p>
+
+  <hr />
+
+  <h2>1. Definições</h2>
+  <table>
+    <thead>
+      <tr><th>Termo</th><th>Significado</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Usuário</strong></td><td>Pessoa física que cria uma conta e utiliza a Plataforma</td></tr>
+      <tr><td><strong>Organização</strong></td><td>Pessoa jurídica ou grupo de trabalho ao qual o Usuário está vinculado dentro da Plataforma</td></tr>
+      <tr><td><strong>Contato</strong></td><td>Pessoa cujos dados são cadastrados pelo Usuário no módulo de CRM</td></tr>
+      <tr><td><strong>Controlador</strong></td><td>A Organização que decide a finalidade e os meios de tratamento dos dados de Contatos</td></tr>
+      <tr><td><strong>Operador</strong></td><td>A Kronos, quando trata dados pessoais em nome da Organização</td></tr>
+      <tr><td><strong>LGPD</strong></td><td>Lei Geral de Proteção de Dados (Lei nº 13.709/2018)</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <h2>2. Dados Pessoais que Coletamos</h2>
+
+  <h3>2.1. Dados do Usuário (Cadastro e Perfil)</h3>
+  <p>Ao criar uma conta na Kronos, coletamos:</p>
+  <ul>
+    <li><strong>Nome completo</strong></li>
+    <li><strong>Endereço de e-mail</strong></li>
+    <li><strong>Número de telefone</strong></li>
+    <li><strong>Senha</strong> (armazenada de forma criptografada pelo serviço de autenticação)</li>
+    <li><strong>Foto de perfil</strong> (opcional)</li>
+  </ul>
+
+  <h3>2.2. Dados da Organização</h3>
+  <p>Para funcionamento do serviço e emissão de cobranças, coletamos:</p>
+  <ul>
+    <li><strong>Nome da organização</strong></li>
+    <li><strong>Tipo de pessoa</strong> (Pessoa Física ou Jurídica)</li>
+    <li><strong>CPF ou CNPJ</strong></li>
+    <li><strong>Razão Social / Nome Fantasia</strong></li>
+    <li><strong>Regime tributário</strong> (Simples Nacional)</li>
+    <li><strong>Endereço completo de faturamento</strong> (CEP, logradouro, número, complemento, bairro, cidade, estado)</li>
+    <li><strong>Dados de contato de faturamento</strong> (nome, e-mail e telefone do responsável)</li>
+    <li><strong>Nicho/segmento de atuação</strong></li>
+  </ul>
+
+  <h3>2.3. Dados de Pagamento</h3>
+  <ul>
+    <li>Dados de cartão de crédito são coletados <strong>exclusivamente pela Stripe</strong>, nossa processadora de pagamentos, por meio de formulários seguros (Stripe Elements). <strong>Nenhum dado de cartão transita ou é armazenado em nossos servidores.</strong></li>
+    <li>Armazenamos apenas identificadores de referência (IDs de cliente, assinatura e método de pagamento da Stripe), necessários para gerenciar o ciclo de cobrança.</li>
+  </ul>
+
+  <h3>2.4. Dados de Contatos do CRM</h3>
+  <p>Os Usuários podem cadastrar dados de terceiros (prospects, clientes, leads), incluindo:</p>
+  <ul>
+    <li>Nome</li>
+    <li>E-mail</li>
+    <li>Telefone</li>
+    <li>CPF</li>
+    <li>Cargo / função</li>
+    <li>Empresa associada</li>
+    <li>Marcação de decisor</li>
+  </ul>
+  <p>
+    <strong>Importante:</strong> A Organização é a Controladora desses dados e deve garantir base legal adequada (consentimento, legítimo interesse, etc.) para o tratamento. A Kronos atua como Operadora.
+  </p>
+
+  <h3>2.5. Dados Comerciais (Negócios, Produtos e Tarefas)</h3>
+  <ul>
+    <li><strong>Negócios:</strong> título, valor, prioridade, status, notas, data de fechamento prevista, motivo de perda</li>
+    <li><strong>Produtos:</strong> nome, descrição, preço</li>
+    <li><strong>Tarefas:</strong> título, tipo (tarefa, reunião, ligação, WhatsApp, visita, e-mail), data de vencimento, status</li>
+    <li><strong>Compromissos:</strong> título, descrição, datas de início/fim, status</li>
+  </ul>
+
+  <h3>2.6. Dados de Conversas e Mensagens (WhatsApp)</h3>
+  <p>Quando a funcionalidade de inbox é utilizada, processamos:</p>
+  <ul>
+    <li><strong>Número de telefone</strong> do remetente/destinatário</li>
+    <li><strong>Conteúdo das mensagens</strong> (texto, áudio, imagens e documentos)</li>
+    <li><strong>Metadados</strong> (timestamps, tipo de mensagem, informações de mídia)</li>
+    <li><strong>Resumos de conversas</strong> gerados por inteligência artificial</li>
+    <li><strong>Arquivos de mídia</strong> (áudios, imagens e documentos recebidos/enviados)</li>
+  </ul>
+  <p>
+    Os arquivos de mídia são armazenados em infraestrutura de armazenamento segura (Supabase Storage e Backblaze B2), organizados por organização e conversa.
+  </p>
+
+  <h3>2.7. Base de Conhecimento (Agente de IA)</h3>
+  <p>Quando o Usuário faz upload de documentos para a base de conhecimento do agente de IA:</p>
+  <ul>
+    <li><strong>Conteúdo extraído</strong> dos documentos (PDF, TXT, MD, DOCX — limite de 10 MB por arquivo)</li>
+    <li><strong>Vetores de embedding</strong> gerados a partir do conteúdo (representações matemáticas para busca semântica)</li>
+    <li><strong>Metadados</strong> dos arquivos (nome, tamanho, tipo MIME)</li>
+  </ul>
+
+  <h3>2.8. Dados de Integrações Externas</h3>
+  <p>Quando o Usuário ativa integrações opcionais, coletamos:</p>
+  <ul>
+    <li><strong>Google Calendar:</strong> Endereço de e-mail da conta Google, tokens de acesso e atualização (armazenados com criptografia AES-256-GCM), eventos de calendário sincronizados</li>
+    <li><strong>WhatsApp via Z-API:</strong> Credenciais de conexão da instância Z-API (ID da instância, tokens de autenticação)</li>
+  </ul>
+
+  <h3>2.9. Dados de Uso e Navegação</h3>
+  <ul>
+    <li><strong>Cookies de sessão</strong> para autenticação (HttpOnly, Secure)</li>
+    <li><strong>Cookie de organização</strong> (última organização acessada — retido por 30 dias)</li>
+    <li><strong>Dados de analytics</strong> coletados via Google Tag Manager (visualizações de página, interações, informações do navegador/dispositivo)</li>
+  </ul>
+
+  <h3>2.10. Dados Coletados Automaticamente</h3>
+  <ul>
+    <li><strong>Registros de atividades:</strong> Mantemos um log imutável de ações realizadas na Plataforma (criação, edição, exclusão de registros, mudanças de estágio, atribuições) para fins de auditoria e histórico.</li>
+    <li><strong>Uso de créditos de IA:</strong> Quantidade de mensagens processadas e créditos consumidos por organização, por mês.</li>
+    <li><strong>Transações de carteira:</strong> Registro imutável de compras de crédito, débitos de uso, recarga automática e ajustes.</li>
+  </ul>
+
+  <hr />
+
+  <h2>3. Como Utilizamos os Dados</h2>
+  <p>Utilizamos os dados coletados para as seguintes finalidades:</p>
+  <table>
+    <thead>
+      <tr><th>Finalidade</th><th>Base Legal (LGPD)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Prestação do serviço de CRM (gestão de contatos, negócios, tarefas)</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Autenticação e segurança da conta</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Processamento de pagamentos e faturamento</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Processamento de mensagens de WhatsApp</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Respostas automatizadas via agente de IA</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Criação automática de negócios a partir de conversas</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Envio de e-mails transacionais (convites de equipe, redefinição de senha)</td><td>Execução de contrato (Art. 7º, V)</td></tr>
+      <tr><td>Sincronização de agendamentos com Google Calendar</td><td>Consentimento (Art. 7º, I)</td></tr>
+      <tr><td>Prevenção de fraudes e bots (reCAPTCHA)</td><td>Legítimo interesse (Art. 7º, IX)</td></tr>
+      <tr><td>Análise de uso e melhoria da Plataforma</td><td>Legítimo interesse (Art. 7º, IX)</td></tr>
+      <tr><td>Monitoramento de performance de IA (observabilidade)</td><td>Legítimo interesse (Art. 7º, IX)</td></tr>
+      <tr><td>Cumprimento de obrigações legais e fiscais</td><td>Obrigação legal (Art. 7º, II)</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <h2>4. Compartilhamento de Dados com Terceiros</h2>
+  <p>Compartilhamos dados pessoais apenas com os terceiros estritamente necessários para a operação do serviço:</p>
+
+  <h3>4.1. Subprocessadores</h3>
+  <table>
+    <thead>
+      <tr><th>Terceiro</th><th>Dados Compartilhados</th><th>Finalidade</th><th>Localização</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Supabase</strong> (AWS)</td><td>Todos os dados da Plataforma</td><td>Banco de dados, autenticação e armazenamento de arquivos</td><td>São Paulo, Brasil (sa-east-1)</td></tr>
+      <tr><td><strong>Stripe</strong></td><td>Nome, e-mail, telefone, endereço, CPF/CNPJ</td><td>Processamento de pagamentos e gestão de assinaturas</td><td>EUA (com certificação PCI DSS Nível 1)</td></tr>
+      <tr><td><strong>Meta (WhatsApp Cloud API)</strong></td><td>Mensagens, contatos, mídia</td><td>Envio e recebimento de mensagens WhatsApp</td><td>EUA/Global</td></tr>
+      <tr><td><strong>Evolution API</strong></td><td>Mensagens, contatos, mídia</td><td>Integração alternativa de WhatsApp</td><td>Conforme configuração do cliente</td></tr>
+      <tr><td><strong>Z-API</strong></td><td>Mensagens, contatos, mídia</td><td>Integração alternativa de WhatsApp</td><td>Brasil</td></tr>
+      <tr><td><strong>OpenRouter</strong></td><td>Conteúdo de conversas, prompts do sistema</td><td>Processamento de linguagem natural (IA)</td><td>EUA</td></tr>
+      <tr><td><strong>OpenAI</strong></td><td>Áudios (Whisper), imagens (GPT-4o-mini), textos (embeddings)</td><td>Transcrição, descrição de imagens e busca semântica</td><td>EUA</td></tr>
+      <tr><td><strong>Backblaze B2</strong></td><td>Arquivos de mídia (imagens, vídeos de produtos)</td><td>Armazenamento de arquivos de mídia</td><td>EUA</td></tr>
+      <tr><td><strong>Google Calendar API</strong></td><td>Eventos de calendário, tokens de acesso (criptografados)</td><td>Sincronização de agendamentos</td><td>EUA</td></tr>
+      <tr><td><strong>Resend</strong></td><td>E-mail do destinatário, nome da organização</td><td>Envio de e-mails transacionais</td><td>EUA</td></tr>
+      <tr><td><strong>Google (reCAPTCHA v3)</strong></td><td>Token de interação, endereço IP</td><td>Prevenção de bots no cadastro</td><td>EUA</td></tr>
+      <tr><td><strong>Google (Tag Manager)</strong></td><td>Dados de navegação e interação</td><td>Análise de uso</td><td>EUA</td></tr>
+      <tr><td><strong>Langfuse</strong></td><td>IDs de conversa/organização, métricas de tokens</td><td>Observabilidade de IA</td><td>UE/EUA</td></tr>
+      <tr><td><strong>Trigger.dev</strong></td><td>IDs de conversa/organização, conteúdo de mensagens</td><td>Processamento assíncrono em background</td><td>EUA</td></tr>
+      <tr><td><strong>Redis (Hetzner)</strong></td><td>Chaves de deduplicação, estados temporários</td><td>Cache e controle de concorrência</td><td>Alemanha</td></tr>
+    </tbody>
+  </table>
+
+  <h3>4.2. Transferência Internacional de Dados</h3>
+  <p>Alguns de nossos subprocessadores estão localizados fora do Brasil. Nestes casos, garantimos que a transferência de dados seja realizada de acordo com o Art. 33 da LGPD, mediante:</p>
+  <ul>
+    <li>Cláusulas contratuais padrão</li>
+    <li>Certificações de segurança dos fornecedores (ex.: PCI DSS da Stripe)</li>
+    <li>Padrões de proteção equivalentes aos da legislação brasileira</li>
+  </ul>
+
+  <h3>4.3. Quando Não Compartilhamos</h3>
+  <ul>
+    <li><strong>Não vendemos</strong> dados pessoais a terceiros</li>
+    <li><strong>Não compartilhamos</strong> dados para fins publicitários de terceiros</li>
+    <li><strong>Não utilizamos</strong> pixels de rastreamento de redes sociais (Facebook Pixel, etc.)</li>
+  </ul>
+
+  <hr />
+
+  <h2>5. Inteligência Artificial e Decisões Automatizadas</h2>
+  <p>A Kronos oferece funcionalidades baseadas em inteligência artificial:</p>
+
+  <h3>5.1. Agente de IA para WhatsApp</h3>
+  <ul>
+    <li>Responde mensagens de forma automatizada com base no prompt e na base de conhecimento configurados pela Organização</li>
+    <li>O conteúdo das conversas (até 50 mensagens recentes) é enviado a provedores de LLM (via OpenRouter) para geração de respostas</li>
+    <li><strong>Áudios</strong> recebidos são transcritos automaticamente via OpenAI Whisper (o arquivo de áudio é enviado ao provedor e descartado após transcrição)</li>
+    <li><strong>Imagens</strong> recebidas são descritas automaticamente via OpenAI GPT-4o-mini (a imagem codificada é enviada ao provedor para geração de descrição textual)</li>
+    <li><strong>Documentos da base de conhecimento</strong> são transformados em vetores de embedding via OpenAI text-embedding-3-small para busca semântica</li>
+    <li>O Usuário pode pausar o agente a qualquer momento; o agente também pausa automaticamente quando o atendimento humano assume</li>
+    <li>Os dados enviados aos provedores de IA <strong>não são utilizados para treinamento de modelos</strong>, conforme as políticas dos provedores selecionados</li>
+  </ul>
+
+  <h3>5.2. Processamento Automático</h3>
+  <ul>
+    <li><strong>Criação automática de negócios:</strong> Mensagens recebidas podem gerar automaticamente registros de negócio no CRM</li>
+    <li><strong>Distribuição de leads:</strong> Leads podem ser atribuídos automaticamente a membros da equipe</li>
+    <li><strong>Recarga automática de créditos:</strong> A carteira pode ser recarregada automaticamente quando atinge um limite mínimo configurado pelo Usuário</li>
+    <li><strong>Resumo de conversas:</strong> A IA pode gerar resumos automáticos de conversas</li>
+  </ul>
+
+  <h3>5.3. Observabilidade de IA</h3>
+  <p>Para garantir a qualidade e monitorar o desempenho dos agentes de IA, utilizamos a plataforma <strong>Langfuse</strong> para registrar:</p>
+  <ul>
+    <li>Identificadores de conversa e organização (sem conteúdo de mensagens de forma identificável)</li>
+    <li>Métricas de uso de tokens (entrada/saída)</li>
+    <li>Latência e performance das chamadas ao LLM</li>
+    <li>Registro de erros para diagnóstico</li>
+  </ul>
+  <p>Esses dados são utilizados exclusivamente para monitoramento técnico e melhoria do serviço.</p>
+
+  <h3>5.4. Direito à Revisão</h3>
+  <p>
+    Conforme Art. 20 da LGPD, o titular tem direito de solicitar a revisão de decisões tomadas unicamente com base em tratamento automatizado. Para exercer esse direito, entre em contato pelo canal indicado na Seção 10.
+  </p>
+
+  <hr />
+
+  <h2>6. Armazenamento e Segurança dos Dados</h2>
+
+  <h3>6.1. Infraestrutura</h3>
+  <ul>
+    <li><strong>Banco de dados principal:</strong> PostgreSQL hospedado na Supabase (AWS São Paulo — sa-east-1)</li>
+    <li><strong>Armazenamento de arquivos:</strong> Supabase Storage (compatível com S3)</li>
+    <li><strong>Cache temporário:</strong> Redis com chaves auto-expiráveis (TTLs de 5 minutos a 1 hora)</li>
+  </ul>
+
+  <h3>6.2. Medidas de Segurança</h3>
+  <table>
+    <thead>
+      <tr><th>Medida</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Criptografia em trânsito</strong></td><td>HTTPS/TLS em todas as comunicações</td></tr>
+      <tr><td><strong>Criptografia em repouso</strong></td><td>Banco de dados criptografado pela AWS</td></tr>
+      <tr><td><strong>Criptografia de tokens</strong></td><td>Tokens de integrações (Google Calendar) criptografados com AES-256-GCM</td></tr>
+      <tr><td><strong>Autenticação segura</strong></td><td>Senhas com hash, tokens de sessão HttpOnly/Secure/SameSite</td></tr>
+      <tr><td><strong>Controle de acesso (RBAC)</strong></td><td>Três níveis: Proprietário, Administrador e Membro — aplicado no servidor</td></tr>
+      <tr><td><strong>Isolamento de dados</strong></td><td>Cada Organização acessa apenas seus próprios dados</td></tr>
+      <tr><td><strong>Verificação de webhooks</strong></td><td>Assinaturas HMAC SHA-256 para Stripe e Meta</td></tr>
+      <tr><td><strong>PCI Compliance</strong></td><td>Dados de cartão tratados exclusivamente pela Stripe</td></tr>
+      <tr><td><strong>Proteção contra bots</strong></td><td>Google reCAPTCHA v3 no cadastro</td></tr>
+      <tr><td><strong>Logs de auditoria</strong></td><td>Registro imutável de ações na Plataforma</td></tr>
+    </tbody>
+  </table>
+
+  <h3>6.3. Retenção de Dados</h3>
+  <table>
+    <thead>
+      <tr><th>Tipo de Dado</th><th>Período de Retenção</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dados de conta (Usuário/Organização)</td><td>Enquanto a conta estiver ativa</td></tr>
+      <tr><td>Dados de CRM (contatos, negócios, tarefas)</td><td>Enquanto a Organização mantiver assinatura ativa</td></tr>
+      <tr><td>Conversas e mensagens</td><td>Enquanto não excluídas pelo Usuário</td></tr>
+      <tr><td>Logs de atividade</td><td>Indefinido (trilha de auditoria imutável)</td></tr>
+      <tr><td>Transações de carteira</td><td>Indefinido (registro financeiro imutável)</td></tr>
+      <tr><td>Arquivos de mídia</td><td>Enquanto a conversa associada existir</td></tr>
+      <tr><td>Cache temporário (Redis)</td><td>Auto-expiração (5 minutos a 1 hora)</td></tr>
+      <tr><td>Cookies de sessão</td><td>Duração da sessão autenticada</td></tr>
+      <tr><td>Cookie de organização</td><td>30 dias</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Após o encerramento da conta, os dados serão mantidos pelo prazo necessário para cumprimento de obrigações legais e fiscais, após o qual serão eliminados.
+  </p>
+
+  <hr />
+
+  <h2 id="cookies">7. Cookies e Tecnologias de Rastreamento</h2>
+
+  <h3>7.1. Cookies Essenciais</h3>
+  <table>
+    <thead>
+      <tr><th>Cookie</th><th>Finalidade</th><th>Duração</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>auth-token</code></td><td>Autenticação da sessão</td><td>Sessão</td></tr>
+      <tr><td><code>refresh-token</code></td><td>Renovação automática da sessão</td><td>Conforme configuração</td></tr>
+      <tr><td><code>kronos-last-org-slug</code></td><td>Redirecionamento para última organização acessada</td><td>30 dias</td></tr>
+    </tbody>
+  </table>
+  <p>Estes cookies são <strong>estritamente necessários</strong> para o funcionamento da Plataforma e não podem ser desabilitados.</p>
+
+  <h3>7.2. Cookies de Analytics</h3>
+  <table>
+    <thead>
+      <tr><th>Cookie</th><th>Finalidade</th><th>Duração</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>_ga</code></td><td>Google Analytics — identificação persistente</td><td>2 anos</td></tr>
+      <tr><td><code>_gid</code></td><td>Google Analytics — identificação de sessão</td><td>24 horas</td></tr>
+    </tbody>
+  </table>
+  <p>Estes cookies são utilizados via Google Tag Manager para análise agregada de uso. Não identificam individualmente o Usuário.</p>
+
+  <h3>7.3. Gerenciamento de Cookies</h3>
+  <p>Você pode gerenciar cookies através das configurações do seu navegador. A desativação de cookies essenciais pode comprometer o funcionamento da Plataforma.</p>
+
+  <hr />
+
+  <h2>8. Direitos dos Titulares</h2>
+  <p>De acordo com a LGPD, você possui os seguintes direitos:</p>
+  <table>
+    <thead>
+      <tr><th>Direito</th><th>Descrição</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Confirmação e acesso</strong></td><td>Confirmar a existência de tratamento e acessar seus dados</td></tr>
+      <tr><td><strong>Correção</strong></td><td>Solicitar a correção de dados incompletos, inexatos ou desatualizados</td></tr>
+      <tr><td><strong>Anonimização, bloqueio ou eliminação</strong></td><td>Solicitar para dados desnecessários, excessivos ou tratados em desconformidade</td></tr>
+      <tr><td><strong>Portabilidade</strong></td><td>Solicitar a exportação e transferência dos seus dados a outro fornecedor, por meio da funcionalidade de exportação disponível na Plataforma</td></tr>
+      <tr><td><strong>Eliminação</strong></td><td>Solicitar a exclusão dos dados tratados com base no consentimento</td></tr>
+      <tr><td><strong>Informação sobre compartilhamento</strong></td><td>Saber com quais terceiros seus dados são compartilhados</td></tr>
+      <tr><td><strong>Revogação do consentimento</strong></td><td>Revogar consentimento a qualquer momento, inclusive por meio do painel de gestão de consentimento na Plataforma</td></tr>
+      <tr><td><strong>Revisão de decisões automatizadas</strong></td><td>Solicitar revisão humana de decisões baseadas exclusivamente em IA</td></tr>
+      <tr><td><strong>Oposição</strong></td><td>Opor-se ao tratamento quando realizado com base em legítimo interesse</td></tr>
+    </tbody>
+  </table>
+  <p>Para exercer qualquer desses direitos, utilize o canal indicado na Seção 10.</p>
+  <p><strong>Prazo de resposta:</strong> Até 15 (quinze) dias úteis, conforme Art. 18, §5º da LGPD.</p>
+
+  <hr />
+
+  <h2>9. Dados de Menores</h2>
+  <p>
+    A Kronos não se destina a menores de 18 anos. Não coletamos intencionalmente dados de menores. Caso identifiquemos que dados de um menor foram coletados inadvertidamente, procederemos à sua exclusão imediata.
+  </p>
+
+  <hr />
+
+  <h2>10. Contato e Encarregado (DPO)</h2>
+  <p>Para questões relacionadas a esta Política de Privacidade, exercício de direitos ou comunicação de incidentes, entre em contato:</p>
+  <ul>
+    <li><strong>E-mail:</strong> <a href="mailto:contato@kronoshub.com.br">contato@kronoshub.com.br</a></li>
+    <li><strong>Encarregado de Proteção de Dados (DPO):</strong> PAULO ANTENOR NUNES GERMANO 15782957778 — <a href="mailto:contato@kronoshub.com.br">contato@kronoshub.com.br</a></li>
+  </ul>
+
+  <hr />
+
+  <h2>11. Alterações nesta Política</h2>
+  <p>
+    Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento. Alterações significativas serão comunicadas por e-mail ou por aviso na Plataforma. O uso continuado da Plataforma após a publicação de alterações constitui aceite das novas condições.
+  </p>
+  <p>Recomendamos a revisão periódica desta página.</p>
+
+  <hr />
+
+  <h2>12. Legislação Aplicável e Foro</h2>
+  <p>
+    Esta Política é regida pelas leis da República Federativa do Brasil, em especial pela Lei Geral de Proteção de Dados (Lei nº 13.709/2018) e pelo Marco Civil da Internet (Lei nº 12.965/2014).
+  </p>
+  <p>
+    Fica eleito o foro da comarca de Niterói/RJ para dirimir quaisquer controvérsias decorrentes desta Política, com renúncia expressa a qualquer outro, por mais privilegiado que seja.
+  </p>
+
+  <hr />
+
+  <p>
+    <em>Este documento foi elaborado com base na Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018), no Marco Civil da Internet (Lei nº 12.965/2014) e nas melhores práticas de privacidade para plataformas SaaS.</em>
+  </p>
+</LegalLayout>

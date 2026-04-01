@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+import GTMHead from "../components/GTMHead.astro";
+import GTMBody from "../components/GTMBody.astro";
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Kronos Hub — O Sistema Operacional de Vendas para Times de Alta Performance",
+  description = "Centralize seus contatos, responda com IA e acompanhe resultados em tempo real. A plataforma de IA e CRM que times ambiciosos escolhem para vender mais.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{title}</title>
+    <script is:inline>
+      (function() {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Plus Jakarta Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <GTMHead />
+  </head>
+  <body>
+    <GTMBody />
+    <slot />
+    <script>
+      // Respeitar prefers-reduced-motion: mostrar tudo sem animação
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (prefersReducedMotion) {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
+        );
+
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

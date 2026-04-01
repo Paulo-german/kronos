@@ -1,0 +1,359 @@
+---
+// Features Component
+---
+
+<section class="features-section" id="funcionalidades">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">Como funciona</div>
+      <h2 class="section-title">
+        A IA faz o trabalho pesado. <span class="gradient-text">Seu time fecha a venda.</span>
+      </h2>
+      <p class="section-desc">
+        Não é mais um CRM pra preencher. É uma máquina de vendas que qualifica, organiza e entrega o lead pronto pro seu vendedor.
+      </p>
+    </div>
+
+    <!-- Feature 1 -->
+    <div class="feature-row reveal">
+      <div class="feature-content">
+        <h3 class="feature-title">Lead respondido em segundos, não em horas</h3>
+        <p class="feature-text">
+          A IA lê a mensagem, entende o que o cliente precisa e responde como seu melhor vendedor — 24 horas por dia. Cliente quente? Prioriza. Curioso? Qualifica. Sem potencial? Não desperdiça o tempo do seu time.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Entende a intenção real do cliente
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Coleta dados da conversa automaticamente
+          </li>
+        </ul>
+        <a href="https://app.kronoshub.com.br/login" class="feature-cta" id="cta-comecar-ia-1">
+          COMEÇAR AGORA
+        </a>
+      </div>
+      <div class="feature-visual">
+        <div class="visual-mockup">
+          <div class="chat-bubble left">Qual plano atende nossa agência de 15 pessoas?</div>
+          <div class="chat-bubble right">
+            Perfeito! Para 15 usuários o Scale é ideal.
+            <div class="ai-tag">Respondido pela AI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="feature-row reverse reveal">
+      <div class="feature-content">
+        <h3 class="feature-title">Do chat ao funil de vendas, sem digitar nada</h3>
+        <p class="feature-text">
+          Cada conversa vira negócio no CRM automaticamente. O vendedor abre o painel e já sabe o que o cliente precisa, o que foi conversado e qual o próximo passo. Zero retrabalho.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Negócios criados automaticamente no funil de vendas
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8257e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Resumo completo da conversa feito pela IA
+          </li>
+        </ul>
+        <a href="https://app.kronoshub.com.br/login" class="feature-cta" id="cta-comecar-ia-2">
+          COMEÇAR AGORA
+        </a>
+      </div>
+      <div class="feature-visual">
+         <div class="visual-mockup crm-mockup">
+            <div class="pipe-col">
+               <div class="pipe-title">Lead Novo</div>
+               <div class="pipe-card deal"></div>
+               <div class="pipe-card deal"></div>
+            </div>
+            <div class="pipe-col">
+               <div class="pipe-title">Qualificado</div>
+               <div class="pipe-card deal active">
+                  <div class="pulse"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+
+    <!-- Feature 3 (desativado) -->
+    <!--
+    <div class="feature-row reveal">
+      <div class="feature-content">
+        <h3 class="feature-title">Gestão Onipresente</h3>
+        <p class="feature-text">
+          WhatsApp, Direct do Instagram, Messenger e Site reunidos para seu time não precisar mais saltar de app em app. Uma interface, controle total.
+        </p>
+        <ul class="feature-list">
+          <li>Dashboard de Caixa de Entrada unificada</li>
+          <li>Tempo de Primeira Resposta monitorado</li>
+        </ul>
+        <a href="https://app.kronoshub.com.br/login" class="feature-cta" id="cta-comecar-ia-3">COMECE AGORA</a>
+      </div>
+      <div class="feature-visual"></div>
+    </div>
+    -->
+  </div>
+</section>
+
+<style>
+  .features-section {
+    padding: 80px 0;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .section-desc {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .feature-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 120px;
+  }
+
+  .feature-row.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .feature-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .feature-text {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: var(--font-display);
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-primary);
+  }
+
+  .feature-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #8257e5;
+    background: transparent;
+    transition: background 0.2s;
+  }
+
+  .feature-cta:hover {
+    background: #8257e5;
+    color: #ffffff;
+  }
+
+  .feature-cta-gray {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid var(--dark-3);
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .feature-cta-gray:hover {
+    border-color: var(--border-subtle);
+  }
+
+  .feature-cta-filled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 28px;
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    background: #8257e5;
+    transition: all 0.2s ease;
+  }
+
+  .feature-cta-filled:hover {
+    background: #996dff;
+  }
+
+  .feature-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+  }
+
+  .visual-mockup {
+    width: 100%;
+    max-width: 440px;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 30px 60px var(--shadow-color);
+  }
+
+  .chat-bubble {
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 80%;
+  }
+
+  .chat-bubble.left {
+    background: var(--dark-3);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-bubble.right {
+    background: rgba(130, 87, 229, 0.15);
+    border: 1px solid rgba(130, 87, 229, 0.3);
+    color: var(--text-primary);
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+    position: relative;
+  }
+
+  .ai-tag {
+    margin-top: 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: #8257e5;
+    text-align: right;
+  }
+
+  .crm-mockup { display: flex; gap: 16px; }
+  .pipe-col { flex: 1; }
+  .pipe-title { font-family: var(--font-body); font-size: 11px; color: var(--text-muted); margin-bottom: 12px; text-transform: uppercase; }
+  .pipe-card { height: 48px; background: var(--dark-3); border-radius: 8px; margin-bottom: 8px; }
+  .pipe-card.active { border: 1px solid #8257e5; background: rgba(130, 87, 229, 0.15); display: flex; align-items: center; padding: 0 12px; }
+  .pulse { width: 8px; height: 8px; background: #8257e5; border-radius: 50%; box-shadow: 0 0 12px #8257e5; }
+
+  @media (max-width: 900px) {
+    .feature-row, .feature-row.reverse {
+      flex-direction: column;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .feature-row {
+      margin-bottom: 64px;
+    }
+    .section-header {
+      margin-bottom: 40px;
+    }
+  }
+</style>

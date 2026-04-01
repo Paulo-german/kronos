@@ -1,0 +1,493 @@
+---
+import { getEntry } from "astro:content";
+import Button from "../ui/Button.astro";
+
+const entry = await getEntry("clients", "data");
+const { socialProof } = entry.data;
+
+const faqs = [
+  {
+    question: "Por que a Kronos e não um HubSpot, Pipedrive ou RD?",
+    answer: "Essas ferramentas são CRMs genéricos — fazem um pouco de tudo e não focam em resultado de vendas. A Kronos foi construída pra uma coisa só: ajudar seu time a vender mais. Funil de vendas que se atualiza sozinho, IA que responde lead em segundos, inbox unificada. Tudo que move o ponteiro, sem funcionalidade que ninguém usa.",
+  },
+  {
+    question: "Pra que tipo de empresa a Kronos funciona?",
+    answer: "Funciona pra qualquer empresa que vende com time comercial — de 1 a 200 vendedores. Especialmente quem vende serviço, produto de alto valor ou atendimento consultivo. Se seu lead chega por WhatsApp, Instagram ou formulário e precisa de resposta rápida, a Kronos foi feita pra você.",
+  },
+  {
+    question: "Em quanto tempo eu vejo resultado?",
+    answer: "A implementação leva de 3 a 5 dias úteis com acompanhamento da nossa equipe. Mas o impacto é imediato: no dia 1 seus leads já são respondidos em segundos pela IA. Clientes relatam aumento de conversão já na primeira semana.",
+  },
+  {
+    question: "E se meu time não souber usar?",
+    answer: "A Kronos foi feita pra ser simples — se você sabe usar WhatsApp, sabe usar a Kronos. Mas além disso, todo plano inclui onboarding completo. Configuramos tudo, treinamos o time e acompanhamos até vocês estarem rodando sozinhos.",
+  },
+  {
+    question: "Integra com WhatsApp e Instagram?",
+    answer: "Sim. Integrações nativas com WhatsApp Business API, Meta Ads (Facebook e Instagram), além de Supabase, n8n e Typebot. Tudo chega na mesma inbox e alimenta o CRM automaticamente.",
+  },
+  {
+    question: "Consigo migrar meus dados de outro CRM?",
+    answer: "Sim. Importamos contatos, negócios e histórico via CSV, Excel ou API. Nossa equipe acompanha a migração pra garantir que nada se perca. Já migramos clientes de Salesforce, HubSpot, Pipedrive e planilhas.",
+  },
+  {
+    question: "A IA não vai parecer um robô genérico?",
+    answer: "Não. Os agentes são treinados com informações da sua empresa, seu tom de voz, seus produtos e suas respostas pra objeções. O cliente conversa com algo que soa como sua marca, não como um bot de menu.",
+  },
+];
+---
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">Dúvidas</div>
+      <h2 class="section-title">
+        Perguntas que todo gestor faz
+      </h2>
+      <p class="section-desc">
+        Respostas diretas. Sem enrolação.
+      </p>
+    </div>
+
+    <div class="faq-grid">
+      {faqs.map((faq, i) => (
+        <div class={`faq-item reveal reveal-delay-${Math.min(i, 4)}`} id={`faq-${i}`}>
+          <button class="faq-question" aria-expanded="false">
+            <span>{faq.question}</span>
+            <div class="faq-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </button>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="faq-cta reveal">
+      <p>Ainda tem dúvida? Fala com a gente.</p>
+      <Button variant="outline-gray" href="https://wa.me/5521936183225?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" id="cta-especialista-faq">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+        AGENDAR DEMONSTRAÇÃO
+      </Button>
+    </div>
+  </div>
+</section>
+
+<!-- Urgency / FOMO section -->
+<section class="urgency-section">
+  <div class="container">
+    <div class="urgency-card reveal">
+      <div class="urgency-live">
+        <span class="urgency-dot"></span>
+        <span>{socialProof.fomoText}</span>
+      </div>
+      <h2 class="urgency-title">
+        Enquanto você pensa,<br/>
+        <span class="gradient-text">seu concorrente já está vendendo.</span>
+      </h2>
+      <p class="urgency-desc">
+        Cada dia sem a Kronos é um dia de leads perdidos, vendas travadas e dinheiro escapando.<br/>
+        Comece agora e veja o resultado.
+      </p>
+      <div class="urgency-cta">
+        <Button variant="filled" href="https://app.kronoshub.com.br/sign-up" id="cta-comecar-cta-final">COMEÇAR AGORA</Button>
+        <Button variant="outline-gray" href="https://wa.me/5521936183225?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" id="cta-especialista-cta-final">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+          AGENDAR DEMONSTRAÇÃO
+        </Button>
+      </div>
+      <div class="urgency-note">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3 3 7-6" stroke="#8257e5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Sem cartão de crédito. Sem compromisso. Sem pegadinha.
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta-section">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <h2 class="final-title">Pronto pra vender<br/> como deveria?</h2>
+      <p class="final-desc">Sem contrato. Sem burocracia. Cancele quando quiser.</p>
+      <a href="https://app.kronoshub.com.br/login" class="btn btn-cta" id="cta-comecar-footer">
+        COMEÇAR AGORA
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== FAQ ===== */
+  .faq-section {
+    padding: 80px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .faq-grid {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(130,87,229,0.3);
+  }
+
+  .faq-item.open {
+    border-color: rgba(130,87,229,0.3);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+  }
+
+  .faq-question:hover { color: var(--text-primary); }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--dark-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .faq-icon svg {
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item.open .faq-icon {
+    background: rgba(130,87,229,0.15);
+    color: #8257e5;
+  }
+
+  .faq-item.open .faq-icon svg {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
+  }
+
+  .faq-answer p {
+    padding: 0 32px 24px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .faq-cta {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .faq-cta p {
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+
+  .faq-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.25);
+    color: #25d366;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .faq-contact:hover {
+    background: rgba(37, 211, 102, 0.15);
+  }
+
+  /* ===== URGENCY ===== */
+  .urgency-section {
+    padding: 80px 0;
+  }
+
+  .urgency-card {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 72px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .urgency-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(74,222,128,0.08);
+    border: 1px solid rgba(74,222,128,0.2);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4ade80;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4ade80;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px currentColor; }
+    50% { box-shadow: 0 0 20px currentColor; }
+  }
+
+  .urgency-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency-desc {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgency-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 28px;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 44px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: none;
+  }
+
+  .btn-primary {
+    background: #8257e5;
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background: #996dff;
+  }
+
+  .btn-ghost {
+    background: var(--dark-2);
+    color: var(--text-primary);
+    border: 1px solid var(--dark-3);
+  }
+
+  .btn-ghost:hover {
+    background: var(--dark-3);
+  }
+
+  .btn-cta {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--dark-3);
+  }
+
+  .btn-cta:hover {
+    border-color: rgba(130,87,229,0.3);
+    background: rgba(130,87,229,0.1);
+  }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--dark-3);
+  }
+
+  .final-cta-inner {
+    text-align: center;
+  }
+
+  .final-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .final-desc {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .gradient-text { color: var(--text-primary); }
+
+  @media (max-width: 768px) {
+    .urgency-card { padding: 48px 24px; }
+    .urgency-cta { flex-direction: column; align-items: center; }
+    .faq-cta { flex-direction: column; }
+  }
+
+  @media (max-width: 640px) {
+    .urgency-card { padding: 32px 20px; }
+    .faq-question { padding: 20px 16px; }
+    .faq-answer p { padding: 0 16px 20px; }
+    .section-header { margin-bottom: 40px; }
+    .final-cta-inner { padding: 32px 20px; }
+    .urgency-title { font-size: clamp(24px, 5vw, 32px); }
+  }
+</style>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    btn?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        const a = i.querySelector('.faq-answer');
+        if (a) a.style.maxHeight = '0';
+      });
+
+      // Open clicked if was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        if (answer) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      }
+    });
+  });
+</script>

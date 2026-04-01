@@ -1,0 +1,404 @@
+---
+import { getEntry } from "astro:content";
+
+const entry = await getEntry("clients", "data");
+const { testimonials, metrics, caseStudy } = entry.data;
+
+const delayClasses = ["", "reveal-delay-1", "reveal-delay-2"];
+const stars = "★★★★★";
+---
+
+<!-- Metrics section (social proof numbers) -->
+<section class="metrics-section">
+  <div class="container">
+    <div class="metrics-grid">
+      {metrics.map((m, i) => (
+        <div class={`metric-item reveal ${i > 0 ? `reveal-delay-${i}` : ""}`}>
+          <div
+            class="metric-number gradient-text"
+            data-target={m.target}
+            data-suffix={m.suffix}
+            {...(m.prefix ? { "data-prefix": m.prefix } : {})}
+          >0</div>
+          <div class="metric-label">{m.label}</div>
+          <div class="metric-desc">{m.description}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section" id="depoimentos">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">Resultados reais</div>
+      <h2 class="section-title">
+        Quem usa a Kronos <span class="gradient-text">vende mais. Ponto.</span>
+      </h2>
+      <p class="section-desc">
+        Donos de empresa e gestores comerciais que pararam de perder tempo e começaram a fechar mais.
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((t, i) => (
+        <div class={`testimonial-card reveal ${delayClasses[i % 3]}`}>
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text" set:html={t.quote} />
+          <div class="testimonial-author">
+            <div class="author-avatar" style={`background: ${t.avatarColor};`}>{t.avatarInitials}</div>
+            <div class="author-info">
+              <div class="author-name">{t.name}</div>
+              <div class="author-role">{t.role} | {t.company}</div>
+            </div>
+            <div class="testimonial-stars">{stars.slice(0, t.rating)}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Case study numbers -->
+    <div class="case-study reveal">
+      <div class="cs-header">
+        <div class="cs-badge">Case Study Real</div>
+        <h3 class="cs-title">{caseStudy.company}: {caseStudy.title}</h3>
+      </div>
+      <div class="cs-metrics">
+        {caseStudy.metrics.map((m, i) => (
+          <>
+            {i > 0 && <div class="cs-divider" />}
+            <div class="cs-metric">
+              <div class="csm-value gradient-text">{m.value}</div>
+              <div class="csm-label">{m.label}</div>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ===== METRICS ===== */
+  .metrics-section {
+    padding: 80px 0;
+    background: var(--dark);
+    border-top: 1px solid var(--dark-3);
+    border-bottom: 1px solid var(--dark-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .metric-item {
+    padding: 32px 40px;
+    border-right: 1px solid var(--dark-3);
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .metric-item:last-child { border-right: none; }
+
+  .metric-item:hover {
+    background: rgba(130, 87, 229, 0.05);
+  }
+
+  .metric-number {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .metric-label {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+
+  .metric-desc {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials-section {
+    padding: 80px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 80px;
+  }
+
+  .testimonial-card {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(130, 87, 229, 0.3);
+  }
+
+  .testimonial-quote {
+    font-family: "Georgia", serif;
+    font-size: 50px;
+    line-height: 0.8;
+    color: rgba(130, 87, 229, 0.4);
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .testimonial-text strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  .author-info {
+    flex: initial;
+    min-width: 0;
+  }
+
+  .author-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .author-role {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .testimonial-stars {
+    font-size: 14px;
+    color: #fbbf24;
+    letter-spacing: 1px;
+  }
+
+  /* Case Study */
+  .case-study {
+    background: var(--dark-2);
+    border: 1px solid var(--dark-3);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cs-header {
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .cs-badge {
+    display: inline-block;
+    background: var(--dark-3);
+    border: 1px solid var(--dark-3);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .cs-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .cs-metrics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .cs-metric {
+    flex: 1;
+    text-align: center;
+    padding: 0 24px;
+  }
+
+  .csm-value {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .csm-label {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .cs-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--dark-3);
+  }
+
+  .gradient-text { color: var(--text-primary); }
+
+  @media (max-width: 1024px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric-item:nth-child(2) { border-right: none; }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .cs-metrics { flex-wrap: wrap; }
+    .cs-divider { display: none; }
+    .cs-metric { min-width: 50%; }
+  }
+
+  @media (max-width: 640px) {
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric-item { padding: 24px 16px; border-right: none; border-bottom: 1px solid var(--dark-3); }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonial-card { padding: 24px; }
+  }
+</style>
+
+<script>
+  // Counter animation
+  const counters = document.querySelectorAll('.metric-number[data-target]');
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target') || '0');
+    const prefix = el.getAttribute('data-prefix') || '';
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    const update = (current) => {
+      const elapsed = current - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(eased * target);
+      el.textContent = `${prefix}${value}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => observer.observe(counter));
+</script>

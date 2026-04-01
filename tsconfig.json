@@ -1,0 +1,17 @@
+{
+  "extends": "astro/tsconfigs/strictest", // Mudamos para o nível mais rigoroso de tipagem
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".", // Base para os caminhos abaixo
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "@actions/*": ["src/actions/*"]
+    }
+  }
+}
