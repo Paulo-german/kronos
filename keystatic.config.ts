@@ -5,20 +5,36 @@ export default config({
     kind: "local",
   },
   collections: {
-    posts: collection({
-      label: "Posts",
+    blog: collection({
+      label: "Blog",
       slugField: "title",
-      path: "src/content/posts/*/",
+      path: "src/content/blog/*",
       format: { contentField: "content" },
       schema: {
-        title: fields.slug({ name: { label: "Title" } }),
-        description: fields.text({ label: "Description" }),
+        title: fields.slug({ name: { label: "Título" } }),
+        description: fields.text({
+          label: "Descrição",
+          description: "Resumo do artigo para SEO e listagem",
+        }),
+        pubDate: fields.date({
+          label: "Data de publicação",
+        }),
+        updatedDate: fields.date({
+          label: "Data de atualização",
+          description: "Opcional — preencha apenas se o artigo foi atualizado",
+        }),
+        heroImage: fields.image({
+          label: "Imagem de capa",
+          description: "Opcional — imagem exibida no topo do artigo",
+          directory: "src/assets/images/blog",
+          publicPath: "../../assets/images/blog/",
+        }),
         content: fields.mdx({
-          label: "Content",
+          label: "Conteúdo",
           options: {
             image: {
-              directory: "src/assets/images/posts",
-              publicPath: "../../assets/images/posts/",
+              directory: "src/assets/images/blog",
+              publicPath: "../../assets/images/blog/",
             },
           },
         }),
