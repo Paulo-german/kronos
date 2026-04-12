@@ -3,10 +3,11 @@ import { getEntry, getCollection } from "astro:content";
 import Button from "../ui/Button.astro";
 
 const entry = await getEntry("clients", "data");
+if (!entry) throw new Error("clients/data content entry not found");
 const { socialProof } = entry.data;
 
 const faqCollection = await getCollection("faq");
-const faqs = faqCollection.map(e => e.data);
+const faqs = faqCollection.map((faqEntry) => faqEntry.data);
 ---
 
 <section class="faq-section" id="faq">
@@ -440,23 +441,23 @@ const faqs = faqCollection.map(e => e.data);
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
 
     btn?.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
 
       // Close all
-      document.querySelectorAll('.faq-item').forEach(i => {
-        i.classList.remove('open');
-        const a = i.querySelector('.faq-answer');
-        if (a) a.style.maxHeight = '0';
+      document.querySelectorAll('.faq-item').forEach((faqItem) => {
+        faqItem.classList.remove('open');
+        const answerEl = faqItem.querySelector<HTMLElement>('.faq-answer');
+        if (answerEl) answerEl.style.maxHeight = '0';
       });
 
       // Open clicked if was closed
       if (!isOpen) {
         item.classList.add('open');
-        if (answer) {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
+        const answerEl = item.querySelector<HTMLElement>('.faq-answer');
+        if (answerEl) {
+          answerEl.style.maxHeight = answerEl.scrollHeight + 'px';
         }
       }
     });

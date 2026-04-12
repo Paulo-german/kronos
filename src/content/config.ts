@@ -47,7 +47,7 @@ const clients = defineCollection({
       z.object({
         target: z.number(),
         suffix: z.string(),
-        prefix: z.string().optional(),
+        prefix: z.string().default(""),
         label: z.string(),
         description: z.string(),
       }),

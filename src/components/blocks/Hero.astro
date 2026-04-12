@@ -18,6 +18,7 @@ const clientLogos = [
 ];
 
 const entry = await getEntry("clients", "data");
+if (!entry) throw new Error("clients/data content entry not found");
 const { socialProof } = entry.data;
 ---
 

@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 
 const entry = await getEntry("clients", "data");
+if (!entry) throw new Error("clients/data content entry not found");
 const { testimonials, metrics, caseStudy } = entry.data;
 
 const delayClasses = ["", "reveal-delay-1", "reveal-delay-2"];
@@ -372,14 +373,14 @@ const stars = "★★★★★";
   // Counter animation
   const counters = document.querySelectorAll('.metric-number[data-target]');
 
-  const animateCounter = (el) => {
+  const animateCounter = (el: Element) => {
     const target = parseInt(el.getAttribute('data-target') || '0');
     const prefix = el.getAttribute('data-prefix') || '';
     const suffix = el.getAttribute('data-suffix') || '';
     const duration = 2000;
     const start = performance.now();
 
-    const update = (current) => {
+    const update = (current: number) => {
       const elapsed = current - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);

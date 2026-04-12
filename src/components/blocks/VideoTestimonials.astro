@@ -11,6 +11,7 @@ interface VideoTestimonial {
   logo?: ImageMetadata;
 }
 
+// Vídeos hardcoded (Vimeo IDs + logos locais) — migrar para CMS na Etapa 3 ou 4
 const videos: VideoTestimonial[] = [
   {
     vimeoId: "1176021709",
@@ -49,15 +50,15 @@ const videos: VideoTestimonial[] = [
     </div>
 
     <div class="videos-grid">
-      {videos.map((v, i) => (
-        <div class={`video-card reveal ${i > 0 ? `reveal-delay-${Math.min(i, 4)}` : ""}`}>
+      {videos.map((video, index) => (
+        <div class={`video-card reveal ${index > 0 ? `reveal-delay-${Math.min(index, 4)}` : ""}`}>
           <div class="video-wrapper">
             <iframe
-              src={`https://player.vimeo.com/video/${v.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&transparent=0&pip=0`}
+              src={`https://player.vimeo.com/video/${video.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&transparent=0&pip=0`}
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
               allowfullscreen
-              title={`Depoimento de ${v.name}`}
+              title={`Depoimento de ${video.name}`}
               loading="lazy"
             ></iframe>
             <!-- Bloqueia clique na logo Vimeo (canto inferior esquerdo) -->
@@ -68,22 +69,22 @@ const videos: VideoTestimonial[] = [
           <div class="video-info">
             <!-- Linha 1: empresa em destaque -->
             <div class="video-company-row">
-              {v.logo ? (
+              {video.logo ? (
                 <div class="video-company-logo">
-                  <img src={v.logo.src} alt={`Logo ${v.company}`} />
+                  <img src={video.logo.src} alt={`Logo ${video.company}`} />
                 </div>
               ) : null}
-              <div class="video-company-name">{v.company}</div>
+              <div class="video-company-name">{video.company}</div>
               <div class="video-stars">★★★★★</div>
             </div>
             <!-- Linha 2: pessoa -->
             <div class="video-person-row">
-              {!v.logo && (
-                <div class="video-author-avatar">{v.name.charAt(0)}</div>
+              {!video.logo && (
+                <div class="video-author-avatar">{video.name.charAt(0)}</div>
               )}
               <div class="video-author-text">
-                <div class="video-author-name">{v.name}</div>
-                <div class="video-author-role">{v.role}</div>
+                <div class="video-author-name">{video.name}</div>
+                <div class="video-author-role">{video.role}</div>
               </div>
             </div>
           </div>

@@ -7,9 +7,9 @@ import { getCollection } from "astro:content";
 interface Props {
   title: string;
   description: string;
-  pubDate: Date;
-  updatedDate?: Date;
-  heroImage?: string;
+  pubDate: Date | undefined;
+  updatedDate: Date | undefined;
+  heroImage: string | undefined;
   category?: string;
 }
 
@@ -21,11 +21,6 @@ const formatDate = (date: Date) =>
     month: "long",
     year: "numeric",
   }).format(date);
-
-const readingTime = (text: string) => {
-  const words = text.split(/\s+/).length;
-  return Math.max(1, Math.ceil(words / 200));
-};
 
 // Posts relacionados (outros posts excluindo o atual)
 const allPosts = await getCollection("blog");
@@ -68,7 +63,7 @@ const shareUrlEncoded = encodeURIComponent(shareUrl);
             <div class="author-info">
               <span class="author-name">Equipe Kronos</span>
               <div class="meta-row">
-                <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+                {pubDate && <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>}
                 {updatedDate && (
                   <span class="updated">· Atualizado em {formatDate(updatedDate)}</span>
                 )}

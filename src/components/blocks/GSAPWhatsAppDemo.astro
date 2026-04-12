@@ -603,7 +603,13 @@ import Button from "../ui/Button.astro";
 </style>
 
 <script>
-  const messages = [
+  interface ChatMessage {
+    type: 'user' | 'bot' | 'crm';
+    text: string;
+    time: string;
+  }
+
+  const messages: ChatMessage[] = [
     { type: 'user', text: 'Oi, quero agendar uma consulta com a Dra. Marina. Tem horario essa semana?', time: '09:41' },
     { type: 'bot', text: 'Ola! Claro. A Dra. Marina tem disponibilidade quinta-feira as 10h ou sexta as 15h. Qual prefere?', time: '09:41' },
     { type: 'user', text: 'Quinta as 10h fica perfeito!', time: '09:42' },
@@ -617,7 +623,7 @@ import Button from "../ui/Button.astro";
 
   let lastType = '';
 
-  function createBubble(msg) {
+  function createBubble(msg: ChatMessage) {
     if (msg.type === 'crm') {
       const card = document.createElement('div');
       card.className = 'wa-system-card';
@@ -657,7 +663,7 @@ import Button from "../ui/Button.astro";
     return bubble;
   }
 
-  function showTyping(container) {
+  function showTyping(container: HTMLElement) {
     const typing = document.createElement('div');
     typing.className = 'wa-typing';
     typing.style.position = 'relative';
@@ -668,7 +674,7 @@ import Button from "../ui/Button.astro";
   }
 
   // Track all timeouts so we can clean up
-  let activeTimeouts = [];
+  let activeTimeouts: ReturnType<typeof setTimeout>[] = [];
 
   function clearAllTimeouts() {
     activeTimeouts.forEach((id) => clearTimeout(id));

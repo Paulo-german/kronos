@@ -77,10 +77,10 @@
     ]
   },
   "metrics": [
-    { "target": 120, "suffix": "+", "label": "Empresas vendendo mais", "description": "Já escolheram a Kronos pra crescer" },
-    { "target": 94, "suffix": "%", "label": "Ficam mês após mês", "description": "Porque o resultado aparece" },
+    { "target": 120, "prefix": "", "suffix": "+", "label": "Empresas vendendo mais", "description": "Já escolheram a Kronos pra crescer" },
+    { "target": 94, "prefix": "", "suffix": "%", "label": "Ficam mês após mês", "description": "Porque o resultado aparece" },
     { "target": 12, "prefix": "R$ ", "suffix": "M+", "label": "Em vendas geradas", "description": "Faturamento real dos nossos clientes" },
-    { "target": 15, "suffix": "h", "label": "Salvas por vendedor/semana", "description": "Tempo que voltou pra fechar negócio" }
+    { "target": 15, "prefix": "", "suffix": "h", "label": "Salvas por vendedor/semana", "description": "Tempo que voltou pra fechar negócio" }
   ],
   "socialProof": {
     "heroText": "+120 empresas já vendem mais com a Kronos",

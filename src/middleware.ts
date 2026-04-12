@@ -2,6 +2,24 @@ import { defineMiddleware } from "astro:middleware";
 
 const KEYSTATIC_PASSWORD = import.meta.env.KEYSTATIC_PASSWORD;
 
+// Rate limiting: max 5 login attempts per IP every 15 minutes
+const MAX_ATTEMPTS = 5;
+const WINDOW_MS = 15 * 60 * 1000;
+const loginAttempts = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = loginAttempts.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    loginAttempts.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > MAX_ATTEMPTS;
+}
+
 const loginPage = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -112,6 +130,19 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   // POST = tentativa de login
   if (request.method === "POST") {
+    const clientIp = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+
+    if (isRateLimited(clientIp)) {
+      const html = loginPage.replace(
+        "{{ERROR}}",
+        '<div class="error">Muitas tentativas. Aguarde 15 minutos.</div>'
+      );
+      return new Response(html, {
+        status: 429,
+        headers: { "Content-Type": "text/html" },
+      });
+    }
+
     const formData = await request.formData();
     const password = formData.get("password");
 

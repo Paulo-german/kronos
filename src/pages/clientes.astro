@@ -9,6 +9,7 @@ import logoMaluMake from "../assets/logo-clientes/logo-malumake.webp";
 import logoBraganca from "../assets/logo-clientes/logo-bragançaadvogados.webp";
 
 const entry = await getEntry("clients", "data");
+if (!entry) throw new Error("clients/data content entry not found");
 const { testimonials, companies, caseStudy, metrics } = entry.data;
 
 const videos = [
