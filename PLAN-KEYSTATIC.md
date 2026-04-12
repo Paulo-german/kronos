@@ -9,11 +9,11 @@ Este documento centraliza o planejamento e as tarefas de evolução do painel ad
   - [x] Migrar a estratégia do GitHub App isolado para o Keystatic Cloud (para a equipe conseguir acessar usando apenas e-mail e senha).
   - [x] Testar a injeção do commit de sucesso online.
 
-- [ ] **Etapa 2: Criar Coleções para Seções da Landing Page**
-  - [ ] Construir a Configuração no painel para FAQ (Perguntas e Respostas).
-  - [ ] Integrar puxada de dados de FAQ no arquivo `FAQ.astro`.
-  - [ ] Construir a Configuração no painel para Clientes/Logos em Destaque.
-  - [ ] Refatorar os conteúdos que hoje tão fixados nos componentes `SocialProof.astro` ou similares para iterar essas novas coleções.
+- [x] **Etapa 2: Criar Coleções para Seções da Landing Page**
+  - [x] Construir a Configuração no painel para FAQ (Perguntas e Respostas).
+  - [x] Integrar puxada de dados de FAQ no arquivo `FAQ.astro`.
+  - [x] Construir a Configuração no painel para Clientes/Logos em Destaque.
+  - [x] Refatorar os conteúdos que hoje tão fixados nos componentes `SocialProof.astro` ou similares para iterar essas novas coleções.
 
 - [ ] **Etapa 3: Turbinar a Arquitetura do Blog Post**
   - [ ] Novo Campo: *Status (Rascunho x Publicado)* com filtros na view e sistema de datas unificado.
