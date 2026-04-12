@@ -4,10 +4,10 @@ Este documento centraliza o planejamento e as tarefas de evolução do painel ad
 
 ## Checklist de Implementações
 
-- [ ] **Etapa 1: Habilitar Persistência na Nuvem (Autenticação do Github)**
-  - [ ] Adaptar o `keystatic.config.ts` para comportamento duplo: quando estivermos rodando no terminal da nossa máquina (`pnpm dev`) ele salva os arquivos em "local", porém quando estiver rodando na Vercel (`produção`), ele muda automático pra "github".
-  - [ ] Criar o token/GitHub App Application de integração para o Keystatic conectar com esse repositório com autorização correta.
-  - [ ] Testar a injeção do commit de sucesso online.
+- [x] **Etapa 1: Habilitar Persistência na Nuvem (Autenticação)**
+  - [x] Adaptar o `keystatic.config.ts` para comportamento duplo: quando estivermos rodando no terminal da nossa máquina (`pnpm dev`) ele salva em "local", porém na Vercel (`produção`), ele muda automático pra Keystatic "cloud".
+  - [x] Migrar a estratégia do GitHub App isolado para o Keystatic Cloud (para a equipe conseguir acessar usando apenas e-mail e senha).
+  - [x] Testar a injeção do commit de sucesso online.
 
 - [ ] **Etapa 2: Criar Coleções para Seções da Landing Page**
   - [ ] Construir a Configuração no painel para FAQ (Perguntas e Respostas).

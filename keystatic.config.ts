@@ -5,7 +5,10 @@ const isDev = import.meta.env?.DEV || process.env.NODE_ENV === 'development';
 export default config({
   storage: isDev 
     ? { kind: "local" }
-    : { kind: "github", repo: "Paulo-german/kronos" },
+    : { kind: "cloud" },
+  cloud: {
+    project: "kronos-hub/kronos",
+  },
   collections: {
     blog: collection({
       label: "Blog",
