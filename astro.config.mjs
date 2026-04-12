@@ -11,7 +11,10 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://kronos.com.br",
+  site: "https://www.kronoshub.com.br",
+  security: {
+    checkOrigin: false
+  },
   integrations: [react(), mdx(), keystatic(), sitemap()],
   output: "server",
   adapter: vercel(),
