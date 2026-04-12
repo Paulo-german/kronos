@@ -1,9 +1,11 @@
 import { config, fields, collection } from "@keystatic/core";
 
+const isDev = import.meta.env?.DEV || process.env.NODE_ENV === 'development';
+
 export default config({
-  storage: {
-    kind: "local",
-  },
+  storage: isDev 
+    ? { kind: "local" }
+    : { kind: "github", repo: "Paulo-german/kronos" },
   collections: {
     blog: collection({
       label: "Blog",
