@@ -1,12 +1,11 @@
 ---
-interface Props {
-  href?: string;
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
   variant?: "outline-purple" | "outline-gray" | "filled";
-  class?: string;
-  id?: string;
 }
 
-const { href = "https://app.kronoshub.com.br/sign-up", variant = "outline-purple", class: className = "", id } = Astro.props;
+const { href = "https://app.kronoshub.com.br/sign-up", variant = "outline-purple", class: className = "", id, ...rest } = Astro.props;
 
 const variantClass = {
   "outline-purple": "btn-outline-purple",
@@ -15,7 +14,7 @@ const variantClass = {
 }[variant];
 ---
 
-<a href={href} class:list={[variantClass, className]} id={id}>
+<a href={href} class:list={[variantClass, className]} id={id} {...rest}>
   <slot />
 </a>
 

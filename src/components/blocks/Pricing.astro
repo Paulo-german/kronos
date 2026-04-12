@@ -5,20 +5,21 @@ const plans = [
   {
     id: "light",
     name: "Light",
-    tagline: "Pra quem vende sozinho e quer parar de perder lead.",
+    tagline: "Para profissionais solo que querem organizar seu funil de vendas.",
     price: "147",
+    annualPrice: "113",
+    discount: "22",
     period: "mês",
+    seats: "Para 1 usuário",
     popular: false,
     color: "var(--dark-2)",
     borderColor: "var(--dark-3)",
     features: [
-      "1 usuário",
-      "1 agente IA + 10.000 créditos IA",
-      "1 canal Inbox",
-      "Até 5.000 contatos",
-      "Até 5.000 negócios",
-      "Até 2.000 empresas",
-      "Agendamentos ilimitados",
+      { text: "1 agente IA" },
+      { text: "10.000 créditos IA" },
+      { text: "1 canal Inbox" },
+      { text: "Agendamentos ilimitados" },
+      { text: "Follow-ups", badge: "Beta" },
     ],
     cta: "Assinar Light",
     ctaStyle: "outline",
@@ -26,21 +27,24 @@ const plans = [
   {
     id: "essential",
     name: "Essential",
-    tagline: "Pra equipes pequenas que querem vender com processo.",
+    tagline: "O Início — para equipes pequenas organizarem vendas.",
     price: "397",
+    annualPrice: "357",
+    discount: "10",
     period: "mês",
+    seats: "Para até 4 usuários",
     popular: false,
     color: "var(--dark-2)",
     borderColor: "var(--dark-3)",
     features: [
-      "4 usuários",
-      "4 agentes IA + 18.000 créditos IA",
-      "1 canal Inbox",
-      "Até 25.000 contatos",
-      "Até 25.000 negócios",
-      "Até 10.000 empresas",
-      "Agendamentos ilimitados",
-      "Automações (Em breve)",
+      { text: "Até 4 agentes IA" },
+      { text: "18.000 créditos IA" },
+      { text: "Equipes de Agentes" },
+      { text: "3 canais Inbox" },
+      { text: "Agendamentos ilimitados" },
+      { text: "Follow-ups", badge: "Beta" },
+      { text: "Automações de CRM", badge: "Beta" },
+      { text: "Múltiplos funis de vendas" },
     ],
     cta: "Assinar Essential",
     ctaStyle: "outline",
@@ -48,21 +52,24 @@ const plans = [
   {
     id: "scale",
     name: "Scale",
-    tagline: "Pra quem está crescendo e precisa escalar sem bagunça.",
+    tagline: "O Motor — para equipes em crescimento com automação.",
     price: "697",
+    annualPrice: "627",
+    discount: "10",
     period: "mês",
+    seats: "Para até 10 usuários",
     popular: true,
     color: "var(--dark-2)",
     borderColor: "rgba(130, 87, 229, 0.5)",
     features: [
-      "10 usuários",
-      "10 agentes IA + 45.000 créditos IA",
-      "3 canais Inbox",
-      "Até 50.000 contatos",
-      "Até 50.000 negócios",
-      "Até 20.000 empresas",
-      "Agendamentos ilimitados",
-      "Automações (Em breve)",
+      { text: "Até 10 agentes IA" },
+      { text: "45.000 créditos IA" },
+      { text: "Equipes de Agentes" },
+      { text: "5 canais Inbox" },
+      { text: "Agendamentos ilimitados" },
+      { text: "Follow-ups", badge: "Beta" },
+      { text: "Automações de CRM", badge: "Beta" },
+      { text: "Múltiplos funis de vendas" },
     ],
     cta: "Assinar Scale",
     ctaStyle: "primary",
@@ -70,23 +77,26 @@ const plans = [
   {
     id: "enterprise",
     name: "Enterprise",
-    tagline: "Pra operações grandes que exigem controle total.",
+    tagline: "A Nave — para grandes operações com recursos avançados.",
     price: "1197",
+    annualPrice: "1077",
+    discount: "10",
     period: "mês",
+    seats: "Para até 20 usuários",
     popular: false,
     color: "var(--dark-2)",
     borderColor: "var(--dark-3)",
     features: [
-      "20 usuários",
-      "20 agentes IA + 72.000 créditos IA",
-      "10 canais Inbox",
-      "Até 50.000 contatos",
-      "Até 50.000 negócios",
-      "Até 20.000 empresas",
-      "Agendamentos ilimitados",
-      "Automações (Em breve)",
-      "Ferramentas de integração (Em breve)",
-      "Login único corporativo (Em breve)",
+      { text: "Até 20 agentes IA" },
+      { text: "72.000 créditos IA" },
+      { text: "Equipes de Agentes" },
+      { text: "10 canais Inbox" },
+      { text: "Agendamentos ilimitados" },
+      { text: "Follow-ups", badge: "Beta" },
+      { text: "Automações de CRM", badge: "Beta" },
+      { text: "Múltiplos funis de vendas" },
+      { text: "API de integração", badge: "Em breve" },
+      { text: "SSO / SAML", badge: "Em breve" },
     ],
     cta: "Assinar Enterprise",
     ctaStyle: "outline",
@@ -115,7 +125,7 @@ const plans = [
       </div>
       <span class="toggle-label" id="toggle-annual">
         Anual
-        <span class="save-badge">Economize 10%</span>
+        <span class="save-badge">-22%</span>
       </span>
     </div>
 
@@ -139,12 +149,17 @@ const plans = [
             <div class="plan-price">
               <div class="price-main">
                 <span class="price-currency">R$</span>
-                <span class="price-value" data-monthly={plan.price} data-annual={Math.floor(parseInt(plan.price) * 0.9)}>
+                <span class="price-value" data-monthly={plan.price} data-annual={plan.annualPrice}>
                   {plan.price}
                 </span>
               </div>
               <span class="price-period">/{plan.period}</span>
             </div>
+            <div class="plan-price-meta" data-discount={plan.discount} data-original={plan.price}>
+              <span class="price-original" style="display:none;">de R$ {plan.price}/mês</span>
+              <span class="price-save-badge" style="display:none;">Economize {plan.discount}%</span>
+            </div>
+            <div class="plan-seats">{plan.seats}</div>
 
             <ul class="plan-features">
               {plan.features.map(f => (
@@ -152,13 +167,14 @@ const plans = [
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2 7l3.5 3.5 6.5-7" stroke="#8257e5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  {f}
+                  <span>{f.text}</span>
+                  {f.badge && <span class={`feature-badge ${f.badge === 'Beta' ? 'badge-beta' : 'badge-soon'}`}>{f.badge}</span>}
                 </li>
               ))}
             </ul>
           </div>
 
-          <Button variant={plan.popular ? "filled" : "outline-purple"} class="plan-cta-btn" id={`cta-comecar-${plan.id}`}>
+          <Button variant={plan.popular ? "filled" : "outline-purple"} class="plan-cta-btn" id={`cta-comecar-${plan.id}`} data-tracking="cta" data-cta-action="sign-up" data-cta-context="pricing" data-cta-plan={plan.id}>
             COMEÇAR AGORA
           </Button>
         </div>
@@ -417,6 +433,62 @@ const plans = [
     font-weight: 500;
   }
 
+  .plan-price-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+    min-height: 22px;
+  }
+
+  .price-original {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .price-save-badge {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(0, 179, 126, 0.15);
+    color: #00b37e;
+    border: 1px solid rgba(0, 179, 126, 0.3);
+  }
+
+  .plan-seats {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .feature-badge {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+
+  .badge-beta {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+  }
+
+  .badge-soon {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
   .plan-cta-btn {
     width: 100%;
     justify-content: center;
@@ -536,6 +608,7 @@ const plans = [
   const toggleMonthly = document.getElementById('toggle-monthly');
   const toggleAnnual = document.getElementById('toggle-annual');
   const priceValues = document.querySelectorAll('.price-value');
+  const priceMetas = document.querySelectorAll('.plan-price-meta');
 
   let isAnnual = false;
 
@@ -549,6 +622,13 @@ const plans = [
       const monthly = el.getAttribute('data-monthly');
       const annual = el.getAttribute('data-annual');
       el.textContent = isAnnual ? (annual || monthly) : (monthly || '');
+    });
+
+    priceMetas.forEach(meta => {
+      const original = meta.querySelector('.price-original') as HTMLElement;
+      const badge = meta.querySelector('.price-save-badge') as HTMLElement;
+      if (original) original.style.display = isAnnual ? 'inline' : 'none';
+      if (badge) badge.style.display = isAnnual ? 'inline' : 'none';
     });
   });
 </script>
