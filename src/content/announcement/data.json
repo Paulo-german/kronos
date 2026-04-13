@@ -1,0 +1,8 @@
+{
+  "enabled": false,
+  "type": "promo",
+  "message": "🚀 Semana de lançamento — 20% off no plano anual. Use o cupom KRONOS20.",
+  "ctaLabel": "Ver Planos",
+  "ctaUrl": "#precos",
+  "dismissible": true
+}

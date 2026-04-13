@@ -1,0 +1,154 @@
+---
+import { getEntry } from "astro:content";
+
+const entry = await getEntry("announcement", "data");
+if (!entry || !entry.data.enabled) return;
+
+const { type, message, ctaLabel, ctaUrl, dismissible } = entry.data;
+---
+
+<div
+  class={`announcement-bar announcement-bar--${type}`}
+  id="announcement-bar"
+  role="banner"
+  aria-label="Anúncio"
+>
+  <div class="announcement-inner">
+    <p class="announcement-message">{message}</p>
+    {ctaLabel && ctaUrl && (
+      <a
+        href={ctaUrl}
+        class="announcement-cta"
+        id="cta-announcement-banner"
+        data-tracking="cta"
+        data-cta-action="announcement"
+        data-cta-context="announcement-bar"
+      >
+        {ctaLabel}
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    )}
+  </div>
+  {dismissible && (
+    <button class="announcement-close" id="announcement-close" aria-label="Fechar anúncio">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  )}
+</div>
+
+<style>
+  .announcement-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 48px 10px 16px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    z-index: 100;
+  }
+
+  .announcement-bar--info {
+    background: rgba(97, 218, 251, 0.1);
+    border-bottom: 1px solid rgba(97, 218, 251, 0.2);
+    color: #61dafb;
+  }
+
+  .announcement-bar--promo {
+    background: rgba(130, 87, 229, 0.12);
+    border-bottom: 1px solid rgba(130, 87, 229, 0.25);
+    color: var(--text-primary);
+  }
+
+  .announcement-bar--warning {
+    background: rgba(251, 191, 36, 0.1);
+    border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+
+  .announcement-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .announcement-message {
+    margin: 0;
+    line-height: 1.4;
+    color: inherit;
+  }
+
+  .announcement-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.9;
+    transition: opacity 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .announcement-cta:hover {
+    opacity: 1;
+  }
+
+  .announcement-bar--promo .announcement-cta {
+    color: #8257e5;
+  }
+
+  .announcement-close {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.15s ease;
+  }
+
+  .announcement-close:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .announcement-bar {
+      padding: 10px 40px 10px 12px;
+      font-size: 12px;
+    }
+  }
+</style>
+
+<script>
+  const BAR_KEY = "announcement-dismissed";
+  const bar = document.getElementById("announcement-bar");
+  const closeBtn = document.getElementById("announcement-close");
+
+  if (bar && localStorage.getItem(BAR_KEY) === "true") {
+    bar.style.display = "none";
+  }
+
+  closeBtn?.addEventListener("click", () => {
+    if (bar) bar.style.display = "none";
+    localStorage.setItem(BAR_KEY, "true");
+  });
+</script>

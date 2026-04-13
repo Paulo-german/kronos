@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import GTMHead from "../components/GTMHead.astro";
 import GTMBody from "../components/GTMBody.astro";
+import AnnouncementBar from "../components/blocks/AnnouncementBar.astro";
 interface Props {
   title?: string;
   description?: string;
@@ -44,6 +45,7 @@ const {
   </head>
   <body>
     <GTMBody />
+    <AnnouncementBar />
     <slot />
     <script>
       // Respeitar prefers-reduced-motion: mostrar tudo sem animação

@@ -10,6 +10,43 @@ export default config({
     project: "kronos-hub/kronos",
   },
   singletons: {
+    announcement: singleton({
+      label: "Banner de Anúncio",
+      path: "src/content/announcement/data",
+      format: { data: "json" },
+      schema: {
+        enabled: fields.checkbox({
+          label: "Ativo",
+          description: "Exibe ou oculta o banner sem apagar o conteúdo",
+          defaultValue: false,
+        }),
+        type: fields.select({
+          label: "Tipo",
+          options: [
+            { label: "Informação", value: "info" },
+            { label: "Promoção", value: "promo" },
+            { label: "Aviso", value: "warning" },
+          ],
+          defaultValue: "info",
+        }),
+        message: fields.text({
+          label: "Mensagem",
+          description: "Texto principal do banner. Suporta emojis.",
+        }),
+        ctaLabel: fields.text({
+          label: "Texto do Botão (opcional)",
+          description: "Deixe vazio para exibir apenas a mensagem",
+        }),
+        ctaUrl: fields.text({
+          label: "URL do Botão (opcional)",
+          description: "Ex: #precos, /blog, https://...",
+        }),
+        dismissible: fields.checkbox({
+          label: "Pode ser fechado pelo usuário?",
+          defaultValue: true,
+        }),
+      },
+    }),
     contactInfo: singleton({
       label: "Contato & Links Globais",
       path: "src/content/contact/data",

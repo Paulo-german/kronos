@@ -104,4 +104,16 @@ const contact = defineCollection({
   }),
 });
 
-export const collections = { blog, clients, faq, authors, contact };
+const announcement = defineCollection({
+  type: "data",
+  schema: z.object({
+    enabled: z.boolean().default(false),
+    type: z.enum(["info", "promo", "warning"]).default("info"),
+    message: z.string(),
+    ctaLabel: z.string().optional(),
+    ctaUrl: z.string().optional(),
+    dismissible: z.boolean().default(true),
+  }),
+});
+
+export const collections = { blog, clients, faq, authors, contact, announcement };
