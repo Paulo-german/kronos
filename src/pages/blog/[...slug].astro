@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
+import Callout from "../../components/ui/Callout.astro";
 
 const { slug } = Astro.params;
 
@@ -43,5 +44,5 @@ const { Content } = await render(post);
   authorBio={author.bio}
   authorInitials={author.avatarInitials}
 >
-  <Content />
+  <Content components={{ Callout }} />
 </BlogLayout>

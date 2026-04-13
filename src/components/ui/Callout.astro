@@ -1,0 +1,74 @@
+---
+interface Props {
+  type?: "tip" | "info" | "warning" | "danger";
+}
+
+const { type = "tip" } = Astro.props;
+
+const config = {
+  tip:     { icon: "💡", label: "Dica" },
+  info:    { icon: "ℹ️", label: "Info" },
+  warning: { icon: "⚠️", label: "Aviso" },
+  danger:  { icon: "🚨", label: "Perigo" },
+};
+
+const { icon, label } = config[type];
+---
+
+<aside class={`callout callout--${type}`} role="note" aria-label={label}>
+  <span class="callout-icon" aria-hidden="true">{icon}</span>
+  <div class="callout-content">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border-left: 3px solid;
+    margin: 24px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .callout--tip {
+    background: rgba(130, 87, 229, 0.08);
+    border-color: #8257e5;
+    color: var(--text-primary);
+  }
+
+  .callout--info {
+    background: rgba(97, 218, 251, 0.08);
+    border-color: #61dafb;
+    color: var(--text-primary);
+  }
+
+  .callout--warning {
+    background: rgba(251, 191, 36, 0.08);
+    border-color: #fbbf24;
+    color: var(--text-primary);
+  }
+
+  .callout--danger {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: #ef4444;
+    color: var(--text-primary);
+  }
+
+  .callout-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .callout-content :global(p) {
+    margin: 0;
+  }
+
+  .callout-content :global(p + p) {
+    margin-top: 8px;
+  }
+</style>

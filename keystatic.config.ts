@@ -1,4 +1,5 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
+import { block } from "@keystatic/core/content-components";
 
 const isDev = import.meta.env?.DEV || process.env.NODE_ENV === 'development';
 
@@ -162,8 +163,21 @@ export default config({
       slugField: "title",
       path: "src/content/blog/*",
       format: { contentField: "content" },
+      entryLayout: "content",
       schema: {
-        title: fields.slug({ name: { label: "Título" } }),
+        title: fields.slug({
+          name: { label: "Título" },
+          slug: {
+            generate: (title: string) =>
+              title
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s-]/g, "")
+                .trim()
+                .replace(/\s+/g, "-"),
+          },
+        }),
         description: fields.text({
           label: "Descrição",
           description: "Resumo do artigo para SEO e listagem",
@@ -222,6 +236,24 @@ export default config({
               directory: "src/assets/images/blog",
               publicPath: "../../assets/images/blog/",
             },
+          },
+          components: {
+            Callout: block({
+              label: "Callout",
+              description: "Bloco de destaque para dicas, avisos e alertas",
+              schema: {
+                type: fields.select({
+                  label: "Tipo",
+                  options: [
+                    { label: "💡 Dica", value: "tip" },
+                    { label: "ℹ️ Info", value: "info" },
+                    { label: "⚠️ Aviso", value: "warning" },
+                    { label: "🚨 Perigo", value: "danger" },
+                  ],
+                  defaultValue: "tip",
+                }),
+              },
+            }),
           },
         }),
       },
