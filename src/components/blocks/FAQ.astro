@@ -6,6 +6,10 @@ const entry = await getEntry("clients", "data");
 if (!entry) throw new Error("clients/data content entry not found");
 const { socialProof } = entry.data;
 
+const contactEntry = await getEntry("contact", "data");
+if (!contactEntry) throw new Error("contact/data content entry not found");
+const { whatsappUrl } = contactEntry.data;
+
 const faqCollection = await getCollection("faq");
 const faqs = faqCollection.map((faqEntry) => faqEntry.data);
 ---
@@ -42,7 +46,7 @@ const faqs = faqCollection.map((faqEntry) => faqEntry.data);
 
     <div class="faq-cta reveal">
       <p>Ainda tem dúvida? Fala com a gente.</p>
-      <Button variant="outline-gray" href="https://wa.me/5521936184733?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" id="cta-especialista-faq" data-tracking="cta" data-cta-action="whatsapp" data-cta-context="faq">
+      <Button variant="outline-gray" href={whatsappUrl} id="cta-especialista-faq" data-tracking="cta" data-cta-action="whatsapp" data-cta-context="faq">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
         AGENDAR DEMONSTRAÇÃO
       </Button>
@@ -68,7 +72,7 @@ const faqs = faqCollection.map((faqEntry) => faqEntry.data);
       </p>
       <div class="urgency-cta">
         <Button variant="filled" href="https://app.kronoshub.com.br/sign-up" id="cta-comecar-cta-final" data-tracking="cta" data-cta-action="sign-up" data-cta-context="cta-final">COMEÇAR AGORA</Button>
-        <Button variant="outline-gray" href="https://wa.me/5521936184733?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" id="cta-especialista-cta-final" data-tracking="cta" data-cta-action="whatsapp" data-cta-context="cta-final">
+        <Button variant="outline-gray" href={whatsappUrl} id="cta-especialista-cta-final" data-tracking="cta" data-cta-action="whatsapp" data-cta-context="cta-final">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
           AGENDAR DEMONSTRAÇÃO
         </Button>

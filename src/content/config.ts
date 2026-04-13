@@ -82,4 +82,26 @@ const faq = defineCollection({
   }),
 });
 
-export const collections = { blog, clients, faq, authors };
+const contact = defineCollection({
+  type: "data",
+  schema: z.object({
+    whatsappUrl: z.string(),
+    whatsappSupportUrl: z.string(),
+    appUrl: z.string(),
+    instagramUrl: z.string(),
+    footerTagline: z.string(),
+    footerColumns: z.array(
+      z.object({
+        title: z.string(),
+        links: z.array(
+          z.object({
+            label: z.string(),
+            url: z.string(),
+          }),
+        ),
+      }),
+    ),
+  }),
+});
+
+export const collections = { blog, clients, faq, authors, contact };

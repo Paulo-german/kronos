@@ -2,6 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/blocks/Navbar.astro";
 import Footer from "../components/blocks/Footer.astro";
+import { getEntry } from "astro:content";
+
+const contactEntry = await getEntry("contact", "data");
+if (!contactEntry) throw new Error("contact/data content entry not found");
+const { whatsappSupportUrl } = contactEntry.data;
 
 const categories = [
   {
@@ -155,7 +160,7 @@ const faqs = [
           <h2>Não encontrou o que procurava?</h2>
           <p>Fale diretamente com nosso time de suporte pelo WhatsApp.</p>
           <a
-            href="https://wa.me/5521936184733?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20a%20Kronos"
+            href={whatsappSupportUrl}
             target="_blank"
             rel="noopener"
             id="cta-suporte-ajuda"

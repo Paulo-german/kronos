@@ -1,0 +1,35 @@
+{
+  "whatsappUrl": "https://wa.me/5521936184733?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos",
+  "whatsappSupportUrl": "https://wa.me/5521936184733?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20com%20a%20Kronos",
+  "appUrl": "https://app.kronoshub.com.br",
+  "instagramUrl": "https://instagram.com/kronoshub",
+  "footerTagline": "A plataforma de vendas com IA que entrega resultado real.",
+  "footerColumns": [
+    {
+      "title": "Produto",
+      "links": [
+        { "label": "Soluções", "url": "#solucoes" },
+        { "label": "Preços", "url": "#precos" },
+        { "label": "Integrações", "url": "#integracoes" },
+        { "label": "Automação", "url": "#automacao" }
+      ]
+    },
+    {
+      "title": "Empresa",
+      "links": [
+        { "label": "Sobre Nós", "url": "/sobre-nos" },
+        { "label": "Clientes", "url": "/clientes" },
+        { "label": "Carreiras", "url": "/carreiras" },
+        { "label": "Blog", "url": "/blog" }
+      ]
+    },
+    {
+      "title": "Suporte",
+      "links": [
+        { "label": "FAQ", "url": "#faq" },
+        { "label": "Central de Ajuda", "url": "/central-de-ajuda" },
+        { "label": "Contato", "url": "https://wa.me/5521936184733?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 ---
+import { getEntry } from "astro:content";
 import logoSvg from "../../assets/logo.svg";
+
+const entry = await getEntry("contact", "data");
+if (!entry) throw new Error("contact/data content entry not found");
+const { instagramUrl, footerTagline, footerColumns } = entry.data;
 ---
 
 <footer class="footer-section">
@@ -10,11 +15,9 @@ import logoSvg from "../../assets/logo.svg";
           <img src={logoSvg.src} alt="Kronos Logo" class="logo-img" />
           <span>KRONOS</span>
         </div>
-        <p class="brand-desc">
-          A plataforma de vendas com IA que entrega resultado real.
-        </p>
+        <p class="brand-desc">{footerTagline}</p>
         <div class="footer-social">
-          <a href="https://instagram.com/kronoshub" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href={instagramUrl} target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -23,31 +26,19 @@ import logoSvg from "../../assets/logo.svg";
           </a>
         </div>
       </div>
-      
+
       <div class="footer-links reveal reveal-delay-1">
-        <div class="link-col">
-          <h4>Produto</h4>
-          <a href="#solucoes">Soluções</a>
-          <a href="#precos">Preços</a>
-          <a href="#integracoes">Integrações</a>
-          <a href="#automacao">Automação</a>
-        </div>
-        <div class="link-col">
-          <h4>Empresa</h4>
-          <a href="/sobre-nos">Sobre Nós</a>
-          <a href="/clientes">Clientes</a>
-          <a href="/carreiras">Carreiras</a>
-          <a href="/blog">Blog</a>
-        </div>
-        <div class="link-col">
-          <h4>Suporte</h4>
-          <a href="#faq">FAQ</a>
-          <a href="/central-de-ajuda">Central de Ajuda</a>
-          <a href="https://wa.me/5521936184733?text=Ol%C3%A1%2C%20quero%20falar%20com%20um%20especialista%20Kronos" target="_blank" rel="noopener">Contato</a>
-        </div>
+        {footerColumns.map((column) => (
+          <div class="link-col">
+            <h4>{column.title}</h4>
+            {column.links.map((link) => (
+              <a href={link.url} {...(link.url.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>{link.label}</a>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
-    
+
     <div class="footer-bottom">
       <div class="copyright">
         &copy; {new Date().getFullYear()} Kronos Hub. Todos os direitos reservados.
@@ -133,7 +124,7 @@ import logoSvg from "../../assets/logo.svg";
 
   .footer-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
   }
 
@@ -199,17 +190,17 @@ import logoSvg from "../../assets/logo.svg";
       grid-template-columns: 1fr;
       gap: 48px;
     }
-    
+
     .footer-links {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media (max-width: 600px) {
     .footer-links {
       grid-template-columns: 1fr;
     }
-    
+
     .footer-bottom {
       flex-direction: column;
       gap: 16px;

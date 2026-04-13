@@ -10,6 +10,40 @@ export default config({
     project: "kronos-hub/kronos",
   },
   singletons: {
+    contactInfo: singleton({
+      label: "Contato & Links Globais",
+      path: "src/content/contact/data",
+      format: { data: "json" },
+      schema: {
+        whatsappUrl: fields.text({
+          label: "WhatsApp (Vendas / Especialista)",
+          description: "URL completa do wa.me com texto pré-preenchido para contato comercial",
+        }),
+        whatsappSupportUrl: fields.text({
+          label: "WhatsApp (Suporte / Ajuda)",
+          description: "URL completa do wa.me com texto pré-preenchido para suporte técnico",
+        }),
+        appUrl: fields.text({
+          label: "URL Base do App",
+          description: "Ex: https://app.kronoshub.com.br (sem barra final)",
+        }),
+        instagramUrl: fields.text({ label: "Instagram" }),
+        footerTagline: fields.text({ label: "Tagline do Rodapé" }),
+        footerColumns: fields.array(
+          fields.object({
+            title: fields.text({ label: "Título da Coluna" }),
+            links: fields.array(
+              fields.object({
+                label: fields.text({ label: "Texto do Link" }),
+                url: fields.text({ label: "URL ou âncora (ex: #faq, /blog)" }),
+              }),
+              { label: "Links", itemLabel: (props) => props.fields.label.value },
+            ),
+          }),
+          { label: "Colunas do Rodapé", itemLabel: (props) => props.fields.title.value },
+        ),
+      },
+    }),
     landingPage: singleton({
       label: "Landing Page (Textos e Clientes)",
       path: "src/content/clients/data",
