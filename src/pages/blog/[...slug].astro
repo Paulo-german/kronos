@@ -1,10 +1,9 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
 
 const { slug } = Astro.params;
 
-// Buscar todos os posts e encontrar pelo id (com ou sem extensão)
 const posts = await getCollection("blog");
 const post = posts.find(
   (p) => p.id === slug || p.id === slug + ".md" || p.id === slug + ".mdx" || p.id.replace(/\.mdx?$/, "") === slug
@@ -13,6 +12,19 @@ const post = posts.find(
 if (!post) {
   return Astro.redirect("/blog");
 }
+
+const DEFAULT_AUTHOR = {
+  name: "Equipe Kronos",
+  role: "Time de Conteúdo",
+  bio: "Conteúdo produzido pelo time da Kronos Hub — a plataforma de vendas com IA que ajuda empresas brasileiras a responder leads em segundos, organizar funis de vendas e fechar mais negócios.",
+  avatarInitials: "K",
+};
+
+const authorEntry = post.data.author
+  ? await getEntry("authors", post.data.author)
+  : null;
+
+const author = authorEntry?.data ?? DEFAULT_AUTHOR;
 
 const { Content } = await render(post);
 ---
@@ -23,6 +35,13 @@ const { Content } = await render(post);
   pubDate={post.data.pubDate}
   updatedDate={post.data.updatedDate}
   heroImage={post.data.heroImage?.src}
+  categories={post.data.categories}
+  seoTitle={post.data.seoTitle}
+  seoDescription={post.data.seoDescription}
+  authorName={author.name}
+  authorRole={author.role}
+  authorBio={author.bio}
+  authorInitials={author.avatarInitials}
 >
   <Content />
 </BlogLayout>

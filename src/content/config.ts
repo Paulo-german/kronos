@@ -9,7 +9,22 @@ const blog = defineCollection({
       pubDate: z.coerce.date().optional(),
       updatedDate: z.coerce.date().optional(),
       heroImage: image().optional(),
+      status: z.enum(["draft", "published"]).default("published"),
+      author: z.string().optional(),
+      categories: z.array(z.string()).default([]),
+      seoTitle: z.string().optional(),
+      seoDescription: z.string().optional(),
     }),
+});
+
+const authors = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    role: z.string(),
+    bio: z.string(),
+    avatarInitials: z.string(),
+  }),
 });
 
 const clients = defineCollection({
@@ -67,4 +82,4 @@ const faq = defineCollection({
   }),
 });
 
-export const collections = { blog, clients, faq };
+export const collections = { blog, clients, faq, authors };

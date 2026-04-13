@@ -2,6 +2,11 @@
 title: "Como a Inteligência Artificial está transformando vendas no Brasil"
 description: "Descubra como empresas brasileiras estão usando IA para responder leads mais rápido, qualificar contatos automaticamente e vender mais."
 pubDate: 2026-03-15
+status: published
+author: equipe-kronos
+categories:
+  - "Inteligência Artificial"
+  - "Vendas"
 ---
 
 A inteligência artificial deixou de ser tendência e se tornou uma necessidade competitiva para equipes de vendas. Empresas que adotam IA no processo comercial conseguem responder leads em segundos, qualificar contatos automaticamente e focar o time no que realmente importa: fechar negócios.

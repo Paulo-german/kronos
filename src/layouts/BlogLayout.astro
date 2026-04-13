@@ -10,10 +10,29 @@ interface Props {
   pubDate: Date | undefined;
   updatedDate: Date | undefined;
   heroImage: string | undefined;
-  category?: string;
+  categories: string[];
+  seoTitle: string | undefined;
+  seoDescription: string | undefined;
+  authorName: string;
+  authorRole: string;
+  authorBio: string;
+  authorInitials: string;
 }
 
-const { title, description, pubDate, updatedDate, heroImage, category = "Vendas" } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  categories,
+  seoTitle,
+  seoDescription,
+  authorName,
+  authorRole,
+  authorBio,
+  authorInitials,
+} = Astro.props;
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("pt-BR", {
@@ -22,10 +41,9 @@ const formatDate = (date: Date) =>
     year: "numeric",
   }).format(date);
 
-// Posts relacionados (outros posts excluindo o atual)
 const allPosts = await getCollection("blog");
 const relatedPosts = allPosts
-  .filter((p) => p.data.title !== title)
+  .filter((p) => p.data.title !== title && p.data.status === "published")
   .sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0))
   .slice(0, 3);
 
@@ -34,7 +52,7 @@ const shareText = encodeURIComponent(title);
 const shareUrlEncoded = encodeURIComponent(shareUrl);
 ---
 
-<BaseLayout title={`${title} — Blog Kronos`} description={description}>
+<BaseLayout title={`${seoTitle ?? title} — Blog Kronos`} description={seoDescription ?? description}>
   <Navbar />
   <main class="blog-post-page">
     <!-- Breadcrumbs -->
@@ -54,14 +72,20 @@ const shareUrlEncoded = encodeURIComponent(shareUrl);
     <header class="post-header">
       <div class="container-narrow">
         <div class="header-content reveal">
-          <div class="category-badge">{category}</div>
+          {categories.length > 0 && (
+            <div class="categories-row">
+              {categories.map((cat) => (
+                <span class="category-badge">{cat}</span>
+              ))}
+            </div>
+          )}
           <h1>{title}</h1>
           <p class="post-subtitle">{description}</p>
 
           <div class="author-row">
-            <div class="author-avatar">K</div>
+            <div class="author-avatar">{authorInitials}</div>
             <div class="author-info">
-              <span class="author-name">Equipe Kronos</span>
+              <span class="author-name">{authorName}</span>
               <div class="meta-row">
                 {pubDate && <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>}
                 {updatedDate && (
@@ -129,13 +153,12 @@ const shareUrlEncoded = encodeURIComponent(shareUrl);
     <section class="author-box-section">
       <div class="container-narrow">
         <div class="author-box reveal">
-          <div class="author-box-avatar">K</div>
+          <div class="author-box-avatar">{authorInitials}</div>
           <div class="author-box-info">
             <div class="author-box-label">Escrito por</div>
-            <div class="author-box-name">Equipe Kronos</div>
-            <p class="author-box-bio">
-              Conteúdo produzido pelo time da Kronos Hub — a plataforma de vendas com IA que ajuda empresas brasileiras a responder leads em segundos, organizar funis de vendas e fechar mais negócios.
-            </p>
+            <div class="author-box-name">{authorName}</div>
+            <div class="author-box-role">{authorRole}</div>
+            <p class="author-box-bio">{authorBio}</p>
           </div>
         </div>
       </div>
@@ -242,6 +265,13 @@ const shareUrlEncoded = encodeURIComponent(shareUrl);
     max-width: 760px;
   }
 
+  .categories-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
   .category-badge {
     display: inline-block;
     background: rgba(130, 87, 229, 0.15);
@@ -253,7 +283,6 @@ const shareUrlEncoded = encodeURIComponent(shareUrl);
     letter-spacing: 1.5px;
     padding: 5px 14px;
     border-radius: 6px;
-    margin-bottom: 20px;
   }
 
   .post-header h1 {
@@ -596,6 +625,14 @@ const shareUrlEncoded = encodeURIComponent(shareUrl);
     font-size: 18px;
     font-weight: 600;
     color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .author-box-role {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: #8257e5;
+    font-weight: 500;
     margin-bottom: 8px;
   }
 

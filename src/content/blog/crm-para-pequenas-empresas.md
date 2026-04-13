@@ -2,6 +2,11 @@
 title: "CRM para pequenas empresas: por que você precisa de um (e como escolher)"
 description: "Planilhas não escalam. Entenda por que um CRM é essencial para PMEs e o que procurar na hora de escolher a ferramenta certa."
 pubDate: 2026-03-01
+status: published
+author: equipe-kronos
+categories:
+  - "CRM"
+  - "Gestão Comercial"
 ---
 
 Se sua empresa ainda gerencia clientes por planilha, WhatsApp pessoal ou "de cabeça", você está perdendo vendas todos os dias sem perceber. Um CRM (Customer Relationship Management) não é luxo de grande empresa — é a base para qualquer negócio que quer crescer com previsibilidade.

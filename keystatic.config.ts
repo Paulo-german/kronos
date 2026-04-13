@@ -74,6 +74,18 @@ export default config({
         answer: fields.text({ label: "Resposta", multiline: true }),
       },
     }),
+    authors: collection({
+      label: "Autores",
+      slugField: "name",
+      path: "src/content/authors/*",
+      format: { data: "json" },
+      schema: {
+        name: fields.slug({ name: { label: "Nome" } }),
+        role: fields.text({ label: "Cargo" }),
+        bio: fields.text({ label: "Bio", multiline: true }),
+        avatarInitials: fields.text({ label: "Iniciais do Avatar" }),
+      },
+    }),
     blog: collection({
       label: "Blog",
       slugField: "title",
@@ -84,6 +96,31 @@ export default config({
         description: fields.text({
           label: "Descrição",
           description: "Resumo do artigo para SEO e listagem",
+        }),
+        status: fields.select({
+          label: "Status",
+          description: "Rascunho não aparece na listagem do blog",
+          options: [
+            { label: "Rascunho", value: "draft" },
+            { label: "Publicado", value: "published" },
+          ],
+          defaultValue: "draft",
+        }),
+        author: fields.relationship({
+          label: "Autor",
+          description: "Opcional — se vazio, exibe 'Equipe Kronos'",
+          collection: "authors",
+        }),
+        categories: fields.multiselect({
+          label: "Categorias",
+          options: [
+            { label: "Vendas", value: "Vendas" },
+            { label: "CRM", value: "CRM" },
+            { label: "Inteligência Artificial", value: "Inteligência Artificial" },
+            { label: "WhatsApp Business", value: "WhatsApp Business" },
+            { label: "Gestão Comercial", value: "Gestão Comercial" },
+            { label: "Tecnologia", value: "Tecnologia" },
+          ],
         }),
         pubDate: fields.date({
           label: "Data de publicação",
@@ -97,6 +134,15 @@ export default config({
           description: "Opcional — imagem exibida no topo do artigo",
           directory: "src/assets/images/blog",
           publicPath: "../../assets/images/blog/",
+        }),
+        seoTitle: fields.text({
+          label: "Título SEO",
+          description: "Opcional — se vazio, usa o título do artigo",
+        }),
+        seoDescription: fields.text({
+          label: "Descrição SEO",
+          description: "Opcional — se vazia, usa a descrição do artigo",
+          multiline: true,
         }),
         content: fields.mdx({
           label: "Conteúdo",

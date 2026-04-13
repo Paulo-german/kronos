@@ -2,6 +2,11 @@
 title: "WhatsApp Business para vendas: guia completo para empresas"
 description: "Aprenda a usar o WhatsApp Business como canal de vendas profissional, com automação, CRM integrado e atendimento com IA."
 pubDate: 2026-02-15
+status: published
+author: equipe-kronos
+categories:
+  - "WhatsApp Business"
+  - "Vendas"
 ---
 
 O WhatsApp é o aplicativo mais usado no Brasil, com mais de 190 milhões de usuários. Para empresas, isso significa uma coisa: seus clientes já estão lá. A pergunta não é se você deve usar o WhatsApp para vender, mas como fazer isso de forma profissional e escalável.
