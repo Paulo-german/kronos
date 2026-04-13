@@ -15,12 +15,12 @@ Este documento centraliza o planejamento e as tarefas de evolução do painel ad
   - [x] Construir a Configuração no painel para Clientes/Logos em Destaque.
   - [x] Refatorar os conteúdos que hoje tão fixados nos componentes `SocialProof.astro` ou similares para iterar essas novas coleções.
 
-- [ ] **Etapa 3: Turbinar a Arquitetura do Blog Post**
-  - [ ] Novo Campo: *Status (Rascunho x Publicado)* com filtros na view e sistema de datas unificado.
-  - [ ] Nova Coleção paralela: *Autores* e atrelamento (relational fields) no *Post* (Nome, Cargo, e Avatar do autor escrevendo).
-  - [ ] Novo Campo de Matriz: Categorias / Tags.
-  - [ ] Bloco de campos para configurações dedicadas de *SEO* da página individual.
+- [x] **Etapa 3: Turbinar a Arquitetura do Blog Post**
+  - [x] Novo Campo: *Status (Rascunho x Publicado)* com filtros na view e sistema de datas unificado.
+  - [x] Nova Coleção paralela: *Autores* e atrelamento (relational fields) no *Post* (Nome, Cargo, e Avatar do autor escrevendo).
+  - [x] Novo Campo de Matriz: Categorias / Tags.
+  - [x] Bloco de campos para configurações dedicadas de *SEO* da página individual.
 
-- [ ] **Etapa 4: Singletons (Painel de Configurações Globais)**
-  - [ ] Criar modelo de Singleton de "Informações de Contato / Links".
-  - [ ] Extrair os endereços estáticos de WhatsApp e as definições do Rodapé do código e alimentar passando eles utilizando esta fonte de verdade única.
+- [x] **Etapa 4: Singletons (Painel de Configurações Globais)**
+  - [x] Criar modelo de Singleton de "Informações de Contato / Links".
+  - [x] Extrair os endereços estáticos de WhatsApp e as definições do Rodapé do código e alimentar passando eles utilizando esta fonte de verdade única.
