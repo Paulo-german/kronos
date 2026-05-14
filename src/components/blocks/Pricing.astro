@@ -7,10 +7,9 @@ const plans = [
     name: "Light",
     tagline: "Para profissionais solo que querem organizar seu funil de vendas.",
     price: "247",
-    annualPrice: "1997",
-    discount: "10",
+    annualPrice: "166",
+    discount: "33",
     period: "mês",
-    annualPeriod: "ano",
     seats: "Para 1 usuário",
     popular: false,
     color: "var(--dark-2)",
@@ -154,7 +153,7 @@ const plans = [
                   {plan.price}
                 </span>
               </div>
-              <span class="price-period" data-monthly={plan.period} data-annual={plan.annualPeriod ?? plan.period}>/{plan.period}</span>
+              <span class="price-period">/{plan.period}</span>
             </div>
             <div class="plan-price-meta" data-discount={plan.discount} data-original={plan.price}>
               <span class="price-original" style="display:none;">de R$ {plan.price}/mês</span>
@@ -609,7 +608,6 @@ const plans = [
   const toggleMonthly = document.getElementById('toggle-monthly');
   const toggleAnnual = document.getElementById('toggle-annual');
   const priceValues = document.querySelectorAll('.price-value');
-  const pricePeriods = document.querySelectorAll('.price-period');
   const priceMetas = document.querySelectorAll('.plan-price-meta');
 
   let isAnnual = false;
@@ -624,12 +622,6 @@ const plans = [
       const monthly = el.getAttribute('data-monthly');
       const annual = el.getAttribute('data-annual');
       el.textContent = isAnnual ? (annual || monthly) : (monthly || '');
-    });
-
-    pricePeriods.forEach(el => {
-      const monthly = el.getAttribute('data-monthly');
-      const annual = el.getAttribute('data-annual');
-      el.textContent = '/' + (isAnnual ? (annual || monthly) : (monthly || ''));
     });
 
     priceMetas.forEach(meta => {
